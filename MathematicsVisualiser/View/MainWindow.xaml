@@ -1,0 +1,44 @@
+﻿<Window x:Class="MathematicsVisualiser.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MathematicsVisualiser"
+				DataContext="{Binding Source={StaticResource Locator}, Path=MainViewModel}"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="24"/>
+			<RowDefinition Height="48"/>
+			<RowDefinition Height="*"/>
+		</Grid.RowDefinitions>
+
+		<Menu Grid.Row="0">
+			<MenuItem Header="New"/>
+			<MenuItem Header="Examples"/>
+			<MenuItem Header="Type"/>
+		</Menu>
+
+		<StackPanel Grid.Row="1"
+								Orientation="Horizontal">
+			
+			<TextBlock Text="I want to use a"
+								 Height="24"
+								 HorizontalAlignment="Left"
+								 VerticalAlignment="Top"/>
+
+			<ComboBox ItemsSource="{Binding Path=Sources}" 
+								DisplayMemberPath="DisplayName" 
+								SelectedItem="{Binding Path=SelectedItem}"
+								Height="24"
+								HorizontalAlignment="Left"
+								VerticalAlignment="Top"/>
+
+			<TextBlock Text="{Binding Path=SelectedItem}"
+			
+		</StackPanel>
+
+	</Grid>
+</Window>
