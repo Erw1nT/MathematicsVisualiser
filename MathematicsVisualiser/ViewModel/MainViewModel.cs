@@ -15,6 +15,8 @@ namespace MathematicsVisualiser.ViewModel
 
 		#region Attributes
 
+		private BaseMathematicsViewModel _selectedItem;
+
 		#endregion
 
 		#region Construct
@@ -44,8 +46,15 @@ namespace MathematicsVisualiser.ViewModel
 
 		public BaseMathematicsViewModel SelectedItem
 		{
-			get;
-			set;
+			get
+			{
+				return _selectedItem;
+			}
+			set
+			{
+				_selectedItem = value;
+				RaisePropertyChanged("SelectedItem");
+			}
 		}
 
 		#endregion

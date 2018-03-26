@@ -43,7 +43,10 @@ namespace MathematicsVisualiser.ViewModel.Mathematics
 
 		#region Properties
 
-		public readonly List<BaseOperationViewModel> Operations;
+		public List<BaseOperationViewModel> Operations
+		{
+			get;
+		}
 
 		#endregion
 

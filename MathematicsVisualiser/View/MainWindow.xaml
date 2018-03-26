@@ -35,8 +35,12 @@
 								Height="24"
 								HorizontalAlignment="Left"
 								VerticalAlignment="Top"/>
-
-			<TextBlock Text="{Binding Path=SelectedItem}"
+			
+			<ComboBox ItemsSource="{Binding Path=SelectedItem.Operations}" 
+								DisplayMemberPath="Text"
+								Height="24"
+								HorizontalAlignment="Left"
+								VerticalAlignment="Top"/>
 			
 		</StackPanel>
 

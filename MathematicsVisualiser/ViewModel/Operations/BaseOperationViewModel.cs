@@ -21,9 +21,9 @@ namespace MathematicsVisualiser.ViewModel.Operations
 
 		#region Construct
 
-		protected BaseOperationViewModel(string name, string textAfter, BaseMathematicsViewModel target) : base(name)
+		protected BaseOperationViewModel(string name, string text, BaseMathematicsViewModel target) : base(name)
 		{
-			TextAfter = textAfter;
+			Text = text;
 			Target = target;
 		}
 
@@ -35,7 +35,10 @@ namespace MathematicsVisualiser.ViewModel.Operations
 
 		#region Properties
 		
-		public readonly string TextAfter;
+		public string Text
+		{
+			get;
+		}
 		public readonly BaseMathematicsViewModel Target;
 
 		public BaseMathematicsViewModel Result

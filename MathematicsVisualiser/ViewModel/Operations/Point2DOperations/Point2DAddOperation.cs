@@ -20,7 +20,7 @@ namespace MathematicsVisualiser.ViewModel.Operations.Point2DOperations
 
 		#region Construct
 
-		public Point2DAddOperation() : base("add", "it to", new Point2DWrapper(true))
+		public Point2DAddOperation() : base("add", "and add it to a Point (2D).", new Point2DWrapper(true))
 		{
 
 		}
