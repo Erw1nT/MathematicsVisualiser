@@ -1,6 +1,24 @@
-﻿namespace MathematicsVisualiser.ViewModel.Mathematics.Wrapper
+﻿using MathematicsVisualiser.ViewModel.Operations;
+
+namespace MathematicsVisualiser.ViewModel.Mathematics.Wrapper
 {
-	public abstract class GenericWrapper<T> : BaseMathematicsViewModel where T : struct
+	public abstract class GenericWrapper : BaseMathematicsViewModel
+	{
+
+		protected GenericWrapper(string name, BaseOperationViewModel parentOperation) : base(name, parentOperation)
+		{
+
+		}
+
+		protected object InternalWrappedItem
+		{
+			get;
+			set;
+		}
+
+	}
+
+	public abstract class GenericWrapper<T> : GenericWrapper where T : new()
 	{
 
 		#region Constants
@@ -13,22 +31,32 @@
 
 		#region Construct
 
-		protected GenericWrapper(string name, bool isResult) : base(name, isResult)
+		protected GenericWrapper(string name, BaseOperationViewModel parentOperation) : base(name, parentOperation)
 		{
 			WrappedItem = new T();
 		}
-
 		#endregion
 
 		#region Methods
-
 		#endregion
 
 		#region Properties
 
-		public readonly T WrappedItem;
+		protected T WrappedItem
+		{
+			get
+			{
+				return (T) InternalWrappedItem;
+			}
+			set
+			{
+				InternalWrappedItem = value;
+				RaisePropertyChanged(() => WrappedItem);
+			}
+		}
 
 		#endregion
-
 	}
+
+
 }

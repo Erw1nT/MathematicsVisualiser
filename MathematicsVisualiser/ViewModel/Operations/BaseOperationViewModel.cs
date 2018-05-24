@@ -1,17 +1,10 @@
-﻿using MathematicsVisualiser.ViewModel.Mathematics;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MathematicsVisualiser.ViewModel.Mathematics.Wrapper;
 
 namespace MathematicsVisualiser.ViewModel.Operations
 {
-	public class BaseOperationViewModel : BaseViewModel
+	public abstract class BaseOperationViewModel : BaseViewModel
 	{
 		#region Constants
-
-		private BaseMathematicsViewModel _result;
 
 		#endregion
 
@@ -21,37 +14,41 @@ namespace MathematicsVisualiser.ViewModel.Operations
 
 		#region Construct
 
-		protected BaseOperationViewModel(string name, string text, BaseMathematicsViewModel target) : base(name)
+		protected BaseOperationViewModel(string name) : base(name)
 		{
-			Text = text;
-			Target = target;
 		}
 
 		#endregion
 
 		#region Methods
 
+		public abstract void CalulateResult(GenericWrapper from);
+
+		public void Update()
+		{
+			RaisePropertyChanged();
+		}
+
 		#endregion
 
 		#region Properties
-		
-		public string Text
+
+		public GenericWrapper Result
 		{
 			get;
+			protected set;
 		}
-		public readonly BaseMathematicsViewModel Target;
 
-		public BaseMathematicsViewModel Result
+		public GenericWrapper Operand1
 		{
-			get
-			{
-				return _result;
-			}
+			get;
+			set;
+		}
 
-			protected set
-			{
-				_result = value;
-			}
+		public GenericWrapper Operand2
+		{
+			get;
+			set;
 		}
 
 		#endregion

@@ -1,10 +1,6 @@
-﻿using System;
+﻿using MathematicsVisualiser.ViewModel.Operations;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MathematicsVisualiser.ViewModel.Operations;
-using MathematicsVisualiser.ViewModel.Operations.Point2DOperations;
 
 namespace MathematicsVisualiser.ViewModel.Mathematics
 {
@@ -21,29 +17,35 @@ namespace MathematicsVisualiser.ViewModel.Mathematics
 
 		#region Construct
 
-		protected BaseMathematicsViewModel(string name, bool isResult) : base(name)
+		protected BaseMathematicsViewModel(string name, BaseOperationViewModel parentOperation) : base(name)
 		{
 
-			if (!isResult)
+			if (parentOperation is null)
 			{
-				Operations = new List<BaseOperationViewModel>();
-				InitializeOperations();
-
+				throw new ArgumentNullException();
 			}
 
+			ParentOperation = parentOperation;
+			Commands = new List<CommandWrapper>();
+			InitializeCommands();
 		}
 
 		#endregion
 
 		#region Methods
 
-		protected abstract void InitializeOperations();
+		protected abstract void InitializeCommands();
 
 		#endregion
 
 		#region Properties
 
-		public List<BaseOperationViewModel> Operations
+		protected BaseOperationViewModel ParentOperation
+		{
+			get;
+		}
+
+		public List<CommandWrapper> Commands
 		{
 			get;
 		}

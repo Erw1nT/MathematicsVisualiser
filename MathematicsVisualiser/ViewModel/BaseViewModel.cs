@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using GalaSoft.MvvmLight;
+﻿using GalaSoft.MvvmLight;
+using System.ComponentModel;
 
 namespace MathematicsVisualiser.ViewModel
 {
@@ -16,22 +12,40 @@ namespace MathematicsVisualiser.ViewModel
 
 		#region Construct
 
-		public BaseViewModel(string name)
+		protected BaseViewModel(string name)
 		{
 			DisplayName = name;
 		}
-		
+
 		#endregion
-		
+
+		#region Methods
+
+
+		/// <summary>
+		/// Provides a way to update all properties, as the RaisePropertyChanged-Methods
+		/// in the ViewModelBase do not provide this functionality.
+		/// </summary>
+		protected void RaisePropertyChanged()
+		{
+			var handler = PropertyChangedHandler;
+			if (handler != null)
+			{
+				handler(this, new PropertyChangedEventArgs(string.Empty));
+			}
+		}
+
+		#endregion
+
 		#region Properties
 
 		public string DisplayName
 		{
 			get;
-			set;
 		}
 
 		#endregion
-		
+
 	}
+
 }

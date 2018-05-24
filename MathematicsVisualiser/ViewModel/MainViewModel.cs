@@ -1,6 +1,7 @@
 using GalaSoft.MvvmLight;
-using MathematicsVisualiser.ViewModel.Mathematics;
-using MathematicsVisualiser.ViewModel.Mathematics.Wrapper;
+using MathematicsVisualiser.ViewModel.Operations;
+using MathematicsVisualiser.ViewModel.Operations.Point2DOperations;
+using MathematicsVisualiser.ViewModel.Operations.Point3DOperations;
 using System.Collections.Generic;
 
 namespace MathematicsVisualiser.ViewModel
@@ -15,7 +16,7 @@ namespace MathematicsVisualiser.ViewModel
 
 		#region Attributes
 
-		private BaseMathematicsViewModel _selectedItem;
+		private BaseOperationViewModel _selectedOperation;
 
 		#endregion
 
@@ -26,8 +27,11 @@ namespace MathematicsVisualiser.ViewModel
 		/// </summary>
 		public MainViewModel()
 		{
-			Sources = new List<BaseMathematicsViewModel>();
-			Sources.Add(new Point2DWrapper(false));
+			AllOperations = new List<BaseOperationViewModel>
+			{
+				new Point2DAddOperation(),
+				new Point3DAddOperation()
+			};
 		}
 
 		#endregion
@@ -38,23 +42,20 @@ namespace MathematicsVisualiser.ViewModel
 
 		#region Properties
 
-		public List<BaseMathematicsViewModel> Sources
+		public List<BaseOperationViewModel> AllOperations
 		{
 			get;
-			set;
 		}
 
-		public BaseMathematicsViewModel SelectedItem
+		public BaseOperationViewModel SelectedOperation
 		{
-			get
-			{
-				return _selectedItem;
-			}
+			get { return _selectedOperation; }
 			set
 			{
-				_selectedItem = value;
-				RaisePropertyChanged("SelectedItem");
+				_selectedOperation = value;
+				RaisePropertyChanged(() => SelectedOperation);
 			}
+
 		}
 
 		#endregion

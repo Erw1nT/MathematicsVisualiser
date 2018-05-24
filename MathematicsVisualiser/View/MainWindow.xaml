@@ -4,7 +4,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MathematicsVisualiser"
-				DataContext="{Binding Source={StaticResource Locator}, Path=MainViewModel}"
+        xmlns:mathematics="clr-namespace:MathematicsVisualiser.View.Mathematics"
+        xmlns:vm="clr-namespace:MathematicsVisualiser.ViewModel.Operations.Point2DOperations"
+        xmlns:operations="clr-namespace:MathematicsVisualiser.View.Operations"
+        DataContext="{Binding Source={StaticResource Locator}, Path=MainViewModel}"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
 
@@ -23,26 +26,32 @@
 
 		<StackPanel Grid.Row="1"
 								Orientation="Horizontal">
-			
-			<TextBlock Text="I want to use a"
+
+			<TextBlock Text="I want to "
 								 Height="24"
 								 HorizontalAlignment="Left"
 								 VerticalAlignment="Top"/>
 
-			<ComboBox ItemsSource="{Binding Path=Sources}" 
+			<ComboBox ItemsSource="{Binding Path=AllOperations}" 
 								DisplayMemberPath="DisplayName" 
-								SelectedItem="{Binding Path=SelectedItem}"
+								SelectedItem="{Binding Path=SelectedOperation}"
 								Height="24"
 								HorizontalAlignment="Left"
 								VerticalAlignment="Top"/>
-			
-			<ComboBox ItemsSource="{Binding Path=SelectedItem.Operations}" 
-								DisplayMemberPath="Text"
-								Height="24"
-								HorizontalAlignment="Left"
-								VerticalAlignment="Top"/>
-			
+
 		</StackPanel>
+
+		<ContentPresenter Grid.Row="2" Content="{Binding Path=SelectedOperation}">
+			<ContentPresenter.Resources>
+
+				<DataTemplate DataType="{x:Type vm:Point2DAddOperation}">
+					<operations:Point2DAddOperationView />
+				</DataTemplate>
+
+			</ContentPresenter.Resources>
+
+
+		</ContentPresenter>
 
 	</Grid>
 </Window>

@@ -47,6 +47,7 @@
       <HintPath>..\packages\MvvmLightLibs.5.4.1\lib\net45\GalaSoft.MvvmLight.Platform.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\MvvmLightLibs.5.4.1\lib\net45\System.Windows.Interactivity.dll</HintPath>
@@ -73,6 +74,7 @@
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\Mathematics\BaseMathematicsViewModel.cs" />
+    <Compile Include="ViewModel\Mathematics\CommandWrapper.cs" />
     <Compile Include="ViewModel\Mathematics\LineSegment2D.cs" />
     <Compile Include="ViewModel\Mathematics\LineSegment3D.cs" />
     <Compile Include="ViewModel\Mathematics\Ray2D.cs" />
@@ -81,6 +83,7 @@
     <Compile Include="ViewModel\Mathematics\Wrapper\GenericWrapper.cs" />
     <Compile Include="ViewModel\Operations\BaseOperationViewModel.cs" />
     <Compile Include="ViewModel\Operations\Point2DOperations\Point2DAddOperation.cs" />
+    <Compile Include="ViewModel\Operations\Point3DOperations\Point3DAddOperation.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="ViewModel\Mathematics\Wrapper\Matrix2DWrapper.cs" />
     <Compile Include="ViewModel\Mathematics\Wrapper\Matrix3DWrapper.cs" />
@@ -88,6 +91,12 @@
     <Compile Include="ViewModel\Mathematics\Wrapper\Point3DWrapper.cs" />
     <Compile Include="ViewModel\Mathematics\Wrapper\Vector2DWrapper.cs" />
     <Compile Include="ViewModel\Mathematics\Wrapper\Vector3DWrapper.cs" />
+    <Compile Include="View\Mathematics\Point2DView.xaml.cs">
+      <DependentUpon>Point2DView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Operations\Point2DAddOperationView.xaml.cs">
+      <DependentUpon>Point2DAddOperationView.xaml</DependentUpon>
+    </Compile>
     <Page Include="View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -100,6 +109,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\Mathematics\Point2DView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Operations\Point2DAddOperationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -133,11 +150,11 @@
     <Folder Include="ViewModel\Operations\LineSegment3DOperations\" />
     <Folder Include="ViewModel\Operations\Matrix2DOperations\" />
     <Folder Include="ViewModel\Operations\Matrix3DOperations\" />
-    <Folder Include="ViewModel\Operations\Point3DOperations\" />
     <Folder Include="ViewModel\Operations\Ray2DOperations\" />
     <Folder Include="ViewModel\Operations\Ray3DOperations\" />
     <Folder Include="ViewModel\Operations\Vector2DOperations\" />
     <Folder Include="ViewModel\Operations\Vector3DOperations\" />
+    <Folder Include="View\Converter\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

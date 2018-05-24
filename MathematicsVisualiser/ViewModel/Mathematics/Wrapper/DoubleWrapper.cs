@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MathematicsVisualiser.ViewModel.Operations;
 
 namespace MathematicsVisualiser.ViewModel.Mathematics.Wrapper
 {
-	class DoubleWrapper : BaseMathematicsViewModel
+	class DoubleWrapper : GenericWrapper<double>
 	{
 
 		#region Constants
@@ -18,22 +14,34 @@ namespace MathematicsVisualiser.ViewModel.Mathematics.Wrapper
 		#endregion
 
 		#region Construct
-		public DoubleWrapper(bool isResult) : base("Double", isResult)
+		public DoubleWrapper(BaseOperationViewModel parentOperation) : base("Double", parentOperation)
 		{
-
 		}
 		#endregion
 
 		#region Methods
 
-		protected override void InitializeOperations()
+		protected override void InitializeCommands()
 		{
-
 		}
 
 		#endregion
 
 		#region Properties
+
+		public double Value
+		{
+			get
+			{
+				return (double) InternalWrappedItem;
+			}
+			set
+			{
+				WrappedItem = value;
+				RaisePropertyChanged(() => Value);
+				ParentOperation.CalulateResult(this);
+			}
+		}
 
 		#endregion
 
