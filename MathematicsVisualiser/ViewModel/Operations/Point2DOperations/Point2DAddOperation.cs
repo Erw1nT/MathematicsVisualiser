@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MathematicsVisualiser.ViewModel.Mathematics.Wrapper;
+﻿using MathematicsVisualiser.ViewModel.Operands.Helper;
+using MathematicsVisualiser.ViewModel.Operands.Wrapper;
+using MathematicsVisualiser.ViewModel.Operators;
 
 namespace MathematicsVisualiser.ViewModel.Operations.Point2DOperations
 {
-	class Point2DAddOperation : BaseOperationViewModel
+	class Point2DAddOperation : BinaryOperation<Point2DWrapper, Point2DWrapper, Point2DWrapper>
 	{
 
 		#region Constants
@@ -20,14 +17,23 @@ namespace MathematicsVisualiser.ViewModel.Operations.Point2DOperations
 
 		#region Construct
 
-		public Point2DAddOperation() : base("add", "and add it to a Point (2D).", new Point2DWrapper(true))
+		public Point2DAddOperation() : base("Point 2D add", null, BinaryOperator.GetCenteredOperator("+"))
 		{
-
 		}
 
 		#endregion
 
 		#region Methods
+
+		protected override void Calculate()
+		{
+
+			var point1 = BaseOperand;
+			var point2 = SecondOperand;
+
+			var result = point1.WrappedItem + point2.WrappedItem.ToVector();
+			ResultOperand.WrappedItem = result;
+		}
 
 		#endregion
 

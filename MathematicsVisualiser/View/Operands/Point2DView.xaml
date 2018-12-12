@@ -1,0 +1,37 @@
+﻿<UserControl x:Class="MathematicsVisualiser.View.Operands.Point2DView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:wrapper="clr-namespace:MathematicsVisualiser.ViewModel.Operands.Wrapper"
+						 mc:Ignorable="d" 
+						 d:DataContext="{d:DesignInstance Type=wrapper:Point2DWrapper, IsDesignTimeCreatable=True}"
+             d:DesignHeight="300"
+						 d:DesignWidth="300">
+
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="Auto"/>
+			<ColumnDefinition Width="*"/>
+			<ColumnDefinition Width="Auto"/>
+		</Grid.ColumnDefinitions>
+
+		<TextBlock Grid.Column="0" Text="(" HorizontalAlignment="Stretch">
+			<TextBlock.RenderTransform>
+				<ScaleTransform ScaleX="1" ScaleY="2"/>
+			</TextBlock.RenderTransform>
+		</TextBlock>
+
+		<StackPanel Grid.Column="1">
+			<TextBox Text="{Binding Path=X, Mode=TwoWay}"/>
+			<TextBox Text="{Binding Path=Y, Mode=TwoWay}"/>
+		</StackPanel>
+
+		<TextBlock  Grid.Column="2" Text=")" HorizontalAlignment="Stretch">
+			<TextBlock.RenderTransform>
+				<ScaleTransform ScaleX="1" ScaleY="2"/>
+			</TextBlock.RenderTransform>
+		</TextBlock>
+
+	</Grid>
+</UserControl>

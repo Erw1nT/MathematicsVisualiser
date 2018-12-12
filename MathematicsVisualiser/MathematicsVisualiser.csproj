@@ -72,22 +72,65 @@
     </ApplicationDefinition>
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
-    <Compile Include="ViewModel\Mathematics\BaseMathematicsViewModel.cs" />
-    <Compile Include="ViewModel\Mathematics\LineSegment2D.cs" />
-    <Compile Include="ViewModel\Mathematics\LineSegment3D.cs" />
-    <Compile Include="ViewModel\Mathematics\Ray2D.cs" />
-    <Compile Include="ViewModel\Mathematics\Ray3D.cs" />
-    <Compile Include="ViewModel\Mathematics\Wrapper\DoubleWrapper.cs" />
-    <Compile Include="ViewModel\Mathematics\Wrapper\GenericWrapper.cs" />
-    <Compile Include="ViewModel\Operations\BaseOperationViewModel.cs" />
+    <Compile Include="ViewModel\Operands\Helper\Conversion.cs" />
+    <Compile Include="ViewModel\Operands\LineSegment2D.cs" />
+    <Compile Include="ViewModel\Operands\LineSegment3D.cs" />
+    <Compile Include="ViewModel\Operands\Plane.cs" />
+    <Compile Include="ViewModel\Operands\Ray2D.cs" />
+    <Compile Include="ViewModel\Operands\Ray3D.cs" />
+    <Compile Include="ViewModel\Operands\Wrapper\DoubleWrapper.cs" />
+    <Compile Include="ViewModel\Operands\GenericWrapper.cs" />
+    <Compile Include="ViewModel\Operations\BaseOperation.cs" />
+    <Compile Include="ViewModel\Operations\BinaryOperation.cs" />
+    <Compile Include="ViewModel\Operations\OperationHandler.cs" />
     <Compile Include="ViewModel\Operations\Point2DOperations\Point2DAddOperation.cs" />
+    <Compile Include="ViewModel\Operations\Point2DOperations\Point2DAngleBetweenLineSegmentsOperation.cs" />
+    <Compile Include="ViewModel\Operations\Point2DOperations\Point2DNegateOperation.cs" />
+    <Compile Include="ViewModel\Operations\TernaryOperation.cs" />
+    <Compile Include="ViewModel\Operations\UnaryOperation.cs" />
+    <Compile Include="ViewModel\Operations\Vector2DOperations\Vector2DAddOperation.cs" />
+    <Compile Include="ViewModel\Operations\Vector2DOperations\Vector2DDotProduct.cs" />
+    <Compile Include="ViewModel\Operations\Vector3DOperations\Vector3DDotProduct.cs" />
+    <Compile Include="ViewModel\Operators\BinaryOperator.cs" />
+    <Compile Include="ViewModel\Operators\UnaryOperator.cs" />
+    <Compile Include="ViewModel\Operators\OperatorPosition.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
-    <Compile Include="ViewModel\Mathematics\Wrapper\Matrix2DWrapper.cs" />
-    <Compile Include="ViewModel\Mathematics\Wrapper\Matrix3DWrapper.cs" />
-    <Compile Include="ViewModel\Mathematics\Wrapper\Point2DWrapper.cs" />
-    <Compile Include="ViewModel\Mathematics\Wrapper\Point3DWrapper.cs" />
-    <Compile Include="ViewModel\Mathematics\Wrapper\Vector2DWrapper.cs" />
-    <Compile Include="ViewModel\Mathematics\Wrapper\Vector3DWrapper.cs" />
+    <Compile Include="ViewModel\Operands\Wrapper\Matrix2DWrapper.cs" />
+    <Compile Include="ViewModel\Operands\Wrapper\Matrix3DWrapper.cs" />
+    <Compile Include="ViewModel\Operands\Wrapper\Point2DWrapper.cs" />
+    <Compile Include="ViewModel\Operands\Wrapper\Point3DWrapper.cs" />
+    <Compile Include="ViewModel\Operands\Wrapper\Vector2DWrapper.cs" />
+    <Compile Include="ViewModel\Operands\Wrapper\Vector3DWrapper.cs" />
+    <Compile Include="View\DebugConverter.cs" />
+    <Compile Include="View\GenericsHelper.cs" />
+    <Compile Include="View\Operands\DoubleView.xaml.cs">
+      <DependentUpon>DoubleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Operands\Point2DView.xaml.cs">
+      <DependentUpon>Point2DView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Operands\Vector2DView.xaml.cs">
+      <DependentUpon>Vector2DView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Operands\Vector3DView.xaml.cs">
+      <DependentUpon>Vector3DView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Operations\BinaryOperationView.xaml.cs">
+      <DependentUpon>BinaryOperationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Operations\TernaryOperationView.xaml.cs">
+      <DependentUpon>TernaryOperationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Operations\UnaryOperationView.xaml.cs">
+      <DependentUpon>UnaryOperationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Operators\BinaryOperatorView.xaml.cs">
+      <DependentUpon>BinaryOperatorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Operators\UnaryOperatorView.xaml.cs">
+      <DependentUpon>UnaryOperatorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ViewTemplateSelector.cs" />
     <Page Include="View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -100,6 +143,46 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\Operands\DoubleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Operands\Point2DView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Operands\Vector2DView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Operands\Vector3DView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Operations\BinaryOperationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Operations\TernaryOperationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Operations\UnaryOperationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Operators\BinaryOperatorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Operators\UnaryOperatorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Resources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -136,8 +219,6 @@
     <Folder Include="ViewModel\Operations\Point3DOperations\" />
     <Folder Include="ViewModel\Operations\Ray2DOperations\" />
     <Folder Include="ViewModel\Operations\Ray3DOperations\" />
-    <Folder Include="ViewModel\Operations\Vector2DOperations\" />
-    <Folder Include="ViewModel\Operations\Vector3DOperations\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -3,15 +3,31 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:MathematicsVisualiser"
+        xmlns:operations="clr-namespace:MathematicsVisualiser.ViewModel.Operations"
+        xmlns:view="clr-namespace:MathematicsVisualiser.View"
 				DataContext="{Binding Source={StaticResource Locator}, Path=MainViewModel}"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow"
+				Height="350"
+				Width="525">
+
+	<Window.Resources>
+
+		<ResourceDictionary>
+			<view:ViewTemplateSelector x:Key="ViewTemplateSelector"/>
+
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary Source="Resources.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+
+		</ResourceDictionary>
+
+	</Window.Resources>
 
 	<Grid>
 		<Grid.RowDefinitions>
 			<RowDefinition Height="24"/>
-			<RowDefinition Height="48"/>
+			<RowDefinition Height="96"/>
 			<RowDefinition Height="*"/>
 		</Grid.RowDefinitions>
 
@@ -23,26 +39,25 @@
 
 		<StackPanel Grid.Row="1"
 								Orientation="Horizontal">
-			
-			<TextBlock Text="I want to use a"
-								 Height="24"
-								 HorizontalAlignment="Left"
-								 VerticalAlignment="Top"/>
 
-			<ComboBox ItemsSource="{Binding Path=Sources}" 
-								DisplayMemberPath="DisplayName" 
-								SelectedItem="{Binding Path=SelectedItem}"
-								Height="24"
-								HorizontalAlignment="Left"
-								VerticalAlignment="Top"/>
-			
-			<ComboBox ItemsSource="{Binding Path=SelectedItem.Operations}" 
-								DisplayMemberPath="Text"
-								Height="24"
-								HorizontalAlignment="Left"
-								VerticalAlignment="Top"/>
-			
+			<ListBox VerticalAlignment="Stretch" 
+							 ItemsSource="{Binding Source={x:Static operations:OperationHandler.Operations}}"
+							 SelectedItem="{Binding Path=SelectedItem}"
+							 DisplayMemberPath="DisplayName"/>
+
 		</StackPanel>
+
+		<Grid Grid.Row="2">
+
+			<GroupBox Header="{Binding Path=SelectedItem.DisplayName}">
+
+				<ContentControl VerticalAlignment="Top"
+            Content="{Binding SelectedItem}" 
+            ContentTemplateSelector="{StaticResource ViewTemplateSelector}" />
+
+			</GroupBox>
+
+		</Grid>
 
 	</Grid>
 </Window>

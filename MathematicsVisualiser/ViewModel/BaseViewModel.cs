@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel;
 using GalaSoft.MvvmLight;
 
 namespace MathematicsVisualiser.ViewModel
@@ -16,7 +12,7 @@ namespace MathematicsVisualiser.ViewModel
 
 		#region Construct
 
-		public BaseViewModel(string name)
+		protected BaseViewModel(string name)
 		{
 			DisplayName = name;
 		}
@@ -28,7 +24,6 @@ namespace MathematicsVisualiser.ViewModel
 		public string DisplayName
 		{
 			get;
-			set;
 		}
 
 		#endregion
