@@ -1,0 +1,121 @@
+﻿<UserControl x:Class="WindowsExt.Controls.ZoomBox.ZoomBoxView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:l="clr-namespace:Components.My.Resources"
+             mc:Ignorable="d" 
+             x:Name="UserControl"
+             d:DesignHeight="300"
+             d:DesignWidth="300" 
+             Background="White">
+
+	<Grid>
+		<Grid.Resources>
+			<BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"></BooleanToVisibilityConverter>
+		</Grid.Resources>
+
+		<Grid Name="ZoomGrid">
+
+			<AdornerDecorator ClipToBounds="True">
+				<AdornerDecorator.ContextMenu>
+					<ContextMenu>
+						<MenuItem Header="Keep drawing in frame" 
+                                  IsCheckable="True" 
+                                  IsChecked="{Binding Path=PlacementTarget.ClipToBounds, RelativeSource={RelativeSource AncestorType={x:Type ContextMenu}}}"/>
+					</ContextMenu>
+				</AdornerDecorator.ContextMenu>
+
+				<Grid>
+
+					<Border x:Name="ZoomContent" RenderTransformOrigin="0.5,0.5">
+						<ContentControl x:Name="ContentCtrl" Content="{Binding ElementName=UserControl, Path=CanvasContent}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+					</Border>
+
+					<Expander Header="{x:Static l:Language.Visibility}" 
+                              x:Name="VisibilityExpander"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Top"                                                            
+                              Background="White"
+                              BorderBrush="WhiteSmoke"
+                              BorderThickness="2">
+
+						<Expander.Style>
+							<Style TargetType="Expander">
+								<Style.Triggers>
+
+									<EventTrigger RoutedEvent="MouseEnter">
+										<EventTrigger.Actions>
+
+											<BeginStoryboard>
+												<Storyboard>
+													<DoubleAnimation Storyboard.TargetProperty="(Expander.Background).(SolidColorBrush.Opacity)"
+                                                                    To="0.5" 
+                                                                    Duration="0:0:0.500"/>
+												</Storyboard>
+											</BeginStoryboard>
+
+											<BeginStoryboard>
+												<Storyboard>
+													<DoubleAnimation Storyboard.TargetProperty="(Expander.BorderBrush).(SolidColorBrush.Opacity)"
+                                                                    To="0.5" 
+                                                                    Duration="0:0:0.500"/>
+												</Storyboard>
+											</BeginStoryboard>
+
+										</EventTrigger.Actions>
+									</EventTrigger>
+									<EventTrigger RoutedEvent="MouseLeave">
+										<EventTrigger.Actions>
+											<BeginStoryboard>
+												<Storyboard>
+													<DoubleAnimation Storyboard.TargetProperty="(Expander.Background).(SolidColorBrush.Opacity)"
+                                                                    To="1" 
+                                                                    Duration="0:0:0.500"/>
+												</Storyboard>
+											</BeginStoryboard>
+
+											<BeginStoryboard>
+												<Storyboard>
+													<DoubleAnimation Storyboard.TargetProperty="(Expander.BorderBrush).(SolidColorBrush.Opacity)"
+                                                                    To="1" 
+                                                                    Duration="0:0:0.500"/>
+												</Storyboard>
+											</BeginStoryboard>
+										</EventTrigger.Actions>
+									</EventTrigger>
+
+								</Style.Triggers>
+							</Style>
+						</Expander.Style>
+
+						<StackPanel Name="FilterPanel"
+                                    Margin="22,4,0,4">
+						</StackPanel>
+					</Expander>
+
+				</Grid>
+
+			</AdornerDecorator>
+
+			<Grid MinHeight="15" 
+              HorizontalAlignment="Right"
+              VerticalAlignment="Bottom"
+              Visibility="{Binding ElementName=UserControl, Path=ShowControls, Converter={StaticResource ResourceKey=BooleanToVisibilityConverter}}">
+
+				<TextBlock>
+                <Run Text="{Binding ElementName=UserControl, Path=MousePoint.X, StringFormat={}{0:F2}}"/> 
+                <Run Text="mm, "/> 
+                <Run Text="{Binding ElementName=UserControl, Path=MousePoint.Y, StringFormat={}{0:F2}}"/> 
+                <Run Text="mm "/>
+                <Run Text="{Binding ElementName=UserControl, Path=Settings.ScaleFactor, StringFormat={}{0:P2}}"/> 
+                <Run Text=""/>
+				</TextBlock>
+
+			</Grid>
+
+		</Grid>
+
+	</Grid>
+
+</UserControl>
