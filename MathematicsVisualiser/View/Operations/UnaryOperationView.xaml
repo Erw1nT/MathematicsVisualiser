@@ -10,11 +10,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
 
-	<UserControl.Resources>
-		<view:DebugConverter x:Key="DebugConverter"/>
-	</UserControl.Resources>
-
-	<Grid ShowGridLines="True">
+	<Grid>
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="*" MaxWidth="50"/>
 			<ColumnDefinition Width="24"/>
@@ -25,81 +21,7 @@
 			<RowDefinition Height="*"/>
 		</Grid.RowDefinitions>
 
-		<Grid Grid.Column="0">
-			<Grid.ColumnDefinitions>
-				<ColumnDefinition Width="Auto"/>
-				<ColumnDefinition Width="*"/>
-				<ColumnDefinition Width="Auto"/>
-			</Grid.ColumnDefinitions>
-
-			<Grid.RowDefinitions>
-				<RowDefinition Height="Auto"/>
-				<RowDefinition Height="*"/>
-			</Grid.RowDefinitions>
-
-			<TextBlock Grid.Column="0" Grid.Row="1" Text="{Binding Path=FirstOperator.SymbolFront}" HorizontalAlignment="Center">
-				<TextBlock.Style>
-					<Style TargetType="TextBlock">
-						<Setter Property="VerticalAlignment" Value="Center"/>
-						<Setter Property="Visibility" Value="Visible"/>
-						
-						<Style.Triggers>
-							<DataTrigger Binding="{Binding Path=FirstOperator.Position}" Value="{x:Static operators1:OperatorPosition.Superscript}">
-								<Setter Property="VerticalAlignment" Value="Top"/>
-							</DataTrigger>
-							<DataTrigger Binding="{Binding Path=FirstOperator.Position}" Value="{x:Static operators1:OperatorPosition.Center}">
-								<Setter Property="VerticalAlignment" Value="Center"/>
-							</DataTrigger>
-							<DataTrigger Binding="{Binding Path=FirstOperator.Position}" Value="{x:Static operators1:OperatorPosition.Subscript}">
-								<Setter Property="VerticalAlignment" Value="Bottom"/>
-							</DataTrigger>
-							<DataTrigger Binding="{Binding Path=FirstOperator.SymbolFront}" Value="">
-								<Setter Property="Visibility" Value="Collapsed"/>
-							</DataTrigger>
-						</Style.Triggers>
-					</Style>
-				</TextBlock.Style>
-			</TextBlock>
-
-			<ContentControl Grid.Column="1" Grid.Row="1" Content="{Binding Path=BaseOperand, Converter={StaticResource DebugConverter}}" Background="Red"/>
-
-			<TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding Path=FirstOperator.SymbolHat, TargetNullValue=''}" VerticalAlignment="Center" HorizontalAlignment="Center">
-				<TextBlock.Style>
-					<Style TargetType="TextBlock">
-						<Setter Property="Visibility" Value="Visible"/>
-						<Style.Triggers>
-							<DataTrigger Binding="{Binding Path=FirstOperator.SymbolHat}" Value="{x:Null}">
-								<Setter Property="Visibility" Value="Collapsed"/>
-							</DataTrigger>
-						</Style.Triggers>
-					</Style>
-				</TextBlock.Style>
-			</TextBlock>
-
-			<TextBlock Grid.Column="2" Grid.Row="1" Text="{Binding Path=FirstOperator.SymbolBack}" HorizontalAlignment="Center">
-				<TextBlock.Style>
-					<Style TargetType="TextBlock">
-						<Setter Property="VerticalAlignment" Value="Center"/>
-						<Setter Property="Visibility" Value="Visible"/>
-						<Style.Triggers>
-							<DataTrigger Binding="{Binding Path=FirstOperator.Position}" Value="{x:Static operators1:OperatorPosition.Superscript}">
-								<Setter Property="VerticalAlignment" Value="Top"/>
-							</DataTrigger>
-							<DataTrigger Binding="{Binding Path=FirstOperator.Position}" Value="{x:Static operators1:OperatorPosition.Center}">
-								<Setter Property="VerticalAlignment" Value="Center"/>
-							</DataTrigger>
-							<DataTrigger Binding="{Binding Path=FirstOperator.Position}" Value="{x:Static operators1:OperatorPosition.Subscript}">
-								<Setter Property="VerticalAlignment" Value="Bottom"/>
-							</DataTrigger>
-							<DataTrigger Binding="{Binding Path=FirstOperator.SymbolBack}" Value="">
-								<Setter Property="Visibility" Value="Collapsed"/>
-							</DataTrigger>
-						</Style.Triggers>
-					</Style>
-				</TextBlock.Style>
-			</TextBlock>
-
-		</Grid>
+		<operators:UnaryOperatorView Grid.Column="0" DataContext="{Binding}"/>
 
 		<Button Grid.Column="1" Content="=" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Command="{Binding CalculateCommand}" Height="20" Width="20"/>
 

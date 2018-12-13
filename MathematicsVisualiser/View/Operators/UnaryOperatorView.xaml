@@ -15,62 +15,79 @@
 		<view:DebugConverter x:Key="DebugConverter"/>
 	</UserControl.Resources>
 
-	<Grid>
-		<Grid.ColumnDefinitions>
-			<ColumnDefinition Width="*"/>
-			<ColumnDefinition Width="*"/>
-			<ColumnDefinition Width="*"/>
-		</Grid.ColumnDefinitions>
+	<Grid Grid.Column="0">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="Auto"/>
+				<ColumnDefinition Width="*"/>
+				<ColumnDefinition Width="Auto"/>
+			</Grid.ColumnDefinitions>
 
-		<Grid.RowDefinitions>
-			<RowDefinition Height="Auto"/>
-			<RowDefinition Height="*"/>
-		</Grid.RowDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto"/>
+				<RowDefinition Height="*"/>
+			</Grid.RowDefinitions>
 
-		<TextBlock Grid.Column="0" Grid.Row="1" Text="{Binding Path=SymbolFront}" HorizontalAlignment="Center">
-			<TextBlock.Style>
-				<Style TargetType="TextBlock">
-					<Setter Property="VerticalAlignment" Value="Center"/>
-					<Style.Triggers>
-						<DataTrigger Binding="{Binding Path=Position}" Value="{x:Static operators:OperatorPosition.Superscript}">
-							<Setter Property="VerticalAlignment" Value="Top"/>
-						</DataTrigger>
-						<DataTrigger Binding="{Binding Path=Position}" Value="{x:Static operators:OperatorPosition.Center}">
-							<Setter Property="VerticalAlignment" Value="Center"/>
-						</DataTrigger>
-						<DataTrigger Binding="{Binding Path=Position}" Value="{x:Static operators:OperatorPosition.Subscript}">
-							<Setter Property="VerticalAlignment" Value="Bottom"/>
-						</DataTrigger>
-					</Style.Triggers>
-				</Style>
-			</TextBlock.Style>
-		</TextBlock>
+			<TextBlock Grid.Column="0" Grid.Row="1" Text="{Binding Path=FirstOperator.SymbolFront}" HorizontalAlignment="Center">
+				<TextBlock.Style>
+					<Style TargetType="TextBlock">
+						<Setter Property="VerticalAlignment" Value="Center"/>
+						<Setter Property="Visibility" Value="Visible"/>
+						
+						<Style.Triggers>
+							<DataTrigger Binding="{Binding Path=FirstOperator.Position}" Value="{x:Static operators:OperatorPosition.Superscript}">
+								<Setter Property="VerticalAlignment" Value="Top"/>
+							</DataTrigger>
+							<DataTrigger Binding="{Binding Path=FirstOperator.Position}" Value="{x:Static operators:OperatorPosition.Center}">
+								<Setter Property="VerticalAlignment" Value="Center"/>
+							</DataTrigger>
+							<DataTrigger Binding="{Binding Path=FirstOperator.Position}" Value="{x:Static operators:OperatorPosition.Subscript}">
+								<Setter Property="VerticalAlignment" Value="Bottom"/>
+							</DataTrigger>
+							<DataTrigger Binding="{Binding Path=FirstOperator.SymbolFront}" Value="{x:Null}">
+								<Setter Property="Visibility" Value="Collapsed"/>
+							</DataTrigger>
+						</Style.Triggers>
+					</Style>
+				</TextBlock.Style>
+			</TextBlock>
 
-		<Grid Grid.Column="1" Grid.Row="1" Background="Red">
+			<ContentControl Grid.Column="1" Grid.Row="1" Content="{Binding Path=BaseOperand, Converter={StaticResource DebugConverter}}" Background="Red"/>
+
+			<TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding Path=FirstOperator.SymbolHat, TargetNullValue=''}" VerticalAlignment="Center" HorizontalAlignment="Center">
+				<TextBlock.Style>
+					<Style TargetType="TextBlock">
+						<Setter Property="Visibility" Value="Visible"/>
+						<Style.Triggers>
+							<DataTrigger Binding="{Binding Path=FirstOperator.SymbolHat}" Value="{x:Null}">
+								<Setter Property="Visibility" Value="Collapsed"/>
+							</DataTrigger>
+						</Style.Triggers>
+					</Style>
+				</TextBlock.Style>
+			</TextBlock>
+
+			<TextBlock Grid.Column="2" Grid.Row="1" Text="{Binding Path=FirstOperator.SymbolBack}" HorizontalAlignment="Center">
+				<TextBlock.Style>
+					<Style TargetType="TextBlock">
+						<Setter Property="VerticalAlignment" Value="Center"/>
+						<Setter Property="Visibility" Value="Visible"/>
+						<Style.Triggers>
+							<DataTrigger Binding="{Binding Path=FirstOperator.Position}" Value="{x:Static operators:OperatorPosition.Superscript}">
+								<Setter Property="VerticalAlignment" Value="Top"/>
+							</DataTrigger>
+							<DataTrigger Binding="{Binding Path=FirstOperator.Position}" Value="{x:Static operators:OperatorPosition.Center}">
+								<Setter Property="VerticalAlignment" Value="Center"/>
+							</DataTrigger>
+							<DataTrigger Binding="{Binding Path=FirstOperator.Position}" Value="{x:Static operators:OperatorPosition.Subscript}">
+								<Setter Property="VerticalAlignment" Value="Bottom"/>
+							</DataTrigger>
+							<DataTrigger Binding="{Binding Path=FirstOperator.SymbolBack}" Value="{x:Null}">
+								<Setter Property="Visibility" Value="Collapsed"/>
+							</DataTrigger>
+						</Style.Triggers>
+					</Style>
+				</TextBlock.Style>
+			</TextBlock>
+
 		</Grid>
-		
-		<!--<ContentControl Grid.Column="1" Grid.Row="1" Content="{Binding Path=Operand, ElementName=OperatorView, Converter={StaticResource DebugConverter}}" Background="Red"/>-->
-
-		<TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding Path=SymbolHat}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-
-		<TextBlock Grid.Column="2" Grid.Row="1" Text="{Binding Path=SymbolBack}" HorizontalAlignment="Center">
-			<TextBlock.Style>
-				<Style TargetType="TextBlock">
-					<Setter Property="VerticalAlignment" Value="Center"/>
-					<Style.Triggers>
-						<DataTrigger Binding="{Binding Path=Position}" Value="{x:Static operators:OperatorPosition.Superscript}">
-							<Setter Property="VerticalAlignment" Value="Top"/>
-						</DataTrigger>
-						<DataTrigger Binding="{Binding Path=Position}" Value="{x:Static operators:OperatorPosition.Center}">
-							<Setter Property="VerticalAlignment" Value="Center"/>
-						</DataTrigger>
-						<DataTrigger Binding="{Binding Path=Position}" Value="{x:Static operators:OperatorPosition.Subscript}">
-							<Setter Property="VerticalAlignment" Value="Bottom"/>
-						</DataTrigger>
-					</Style.Triggers>
-				</Style>
-			</TextBlock.Style>
-		</TextBlock>
-
-	</Grid>
 </UserControl>

@@ -14,7 +14,7 @@
 			<RowDefinition Height="*"/>
 		</Grid.RowDefinitions>
 
-		<TextBlock Text="{Binding Path=Symbol}" HorizontalAlignment="Center">
+		<TextBlock Text="{Binding Path=Symbol, TargetNullValue=''}" HorizontalAlignment="Center">
 			<TextBlock.Style>
 				<Style TargetType="TextBlock">
 					<Setter Property="VerticalAlignment" Value="Center"/>
