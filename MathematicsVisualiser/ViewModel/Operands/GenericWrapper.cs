@@ -1,6 +1,10 @@
-﻿namespace MathematicsVisualiser.ViewModel.Operands
+﻿using System.Collections.Generic;
+using System.Windows.Media.Media3D;
+using HelixToolkit.Wpf;
+
+namespace MathematicsVisualiser.ViewModel.Operands
 {
-	public abstract class GenericWrapper<T> : BaseViewModel where T : new()
+	public abstract class GenericWrapper<T> : BaseViewModel where T : struct
 	{
 
 		#region Constants
@@ -41,6 +45,13 @@
 				RaisePropertyChanged(nameof(WrappedItem));
 				RaisePropertyChanged(null);
 			}
+		}
+
+		protected KeyValuePair<T, GeometryModel3D>? LastCalculation;
+
+		public abstract GeometryModel3D Content
+		{
+			get;
 		}
 
 		public bool IsReadOnly

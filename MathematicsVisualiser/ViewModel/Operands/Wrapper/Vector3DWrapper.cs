@@ -42,7 +42,7 @@ namespace MathematicsVisualiser.ViewModel.Operands.Wrapper
 					return;
 				}
 
-				var v = new Vector3D(value, WrappedItem.Y,  WrappedItem.Z);
+				var v = new Vector3D(value, WrappedItem.Y, WrappedItem.Z);
 				WrappedItem = v;
 			}
 		}
@@ -60,7 +60,7 @@ namespace MathematicsVisualiser.ViewModel.Operands.Wrapper
 					return;
 				}
 
-				var v = new Vector3D(WrappedItem.X, value,  WrappedItem.Z);
+				var v = new Vector3D(WrappedItem.X, value, WrappedItem.Z);
 				WrappedItem = v;
 			}
 		}
@@ -78,8 +78,16 @@ namespace MathematicsVisualiser.ViewModel.Operands.Wrapper
 					return;
 				}
 
-				var v = new Vector3D(WrappedItem.X,  WrappedItem.Y, value);
+				var v = new Vector3D(WrappedItem.X, WrappedItem.Y, value);
 				WrappedItem = v;
+			}
+		}
+
+		public override GeometryModel3D Content
+		{
+			get
+			{
+				throw new System.NotImplementedException();
 			}
 		}
 

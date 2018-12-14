@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Windows;
-using MathematicsVisualiser.ViewModel.Operands;
+using System.Windows.Media.Media3D;
+using HelixToolkit.Wpf;
+using MathematicsVisualiser.ViewModel.Operands.Helper;
 
 namespace MathematicsVisualiser.ViewModel.Operands.Wrapper
 {
@@ -62,6 +64,29 @@ namespace MathematicsVisualiser.ViewModel.Operands.Wrapper
 
 				var v = new Vector(WrappedItem.X, value);
 				WrappedItem = v;
+			}
+		}
+
+		public override GeometryModel3D Content
+		{
+			get
+			{
+				if (!LastCalculation.HasValue)
+				{
+				}
+
+				var meshBuilder = new MeshBuilder();
+
+				var startPoint = new Point3D(0, 0, 0);
+				var endPoint = WrappedItem.ToPoint3D();
+				
+				meshBuilder.AddArrow(startPoint, endPoint, 0.1);
+
+				var mat = new DiffuseMaterial(System.Windows.Media.Brushes.Orange);
+				var model = new GeometryModel3D(meshBuilder.ToMesh(), mat);
+
+				return model;
+				
 			}
 		}
 

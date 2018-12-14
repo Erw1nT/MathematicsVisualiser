@@ -1,6 +1,5 @@
 ﻿using System.Windows.Input;
 using GalaSoft.MvvmLight.CommandWpf;
-using MathematicsVisualiser.ViewModel.Operators;
 
 namespace MathematicsVisualiser.ViewModel.Operations
 {

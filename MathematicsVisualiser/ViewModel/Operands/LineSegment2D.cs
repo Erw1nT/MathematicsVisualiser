@@ -1,6 +1,6 @@
 ﻿namespace MathematicsVisualiser.ViewModel.Operands
 {
-	class LineSegment2D
+	struct LineSegment2D
 	{
 
 		#region Constants

@@ -1,4 +1,6 @@
 ﻿using System.Windows.Media;
+using System.Windows.Media.Media3D;
+using HelixToolkit.Wpf;
 using MathematicsVisualiser.ViewModel.Operands;
 
 namespace MathematicsVisualiser.ViewModel.Operands.Wrapper
@@ -20,6 +22,7 @@ namespace MathematicsVisualiser.ViewModel.Operands.Wrapper
 		{
 		}
 
+
 		#endregion
 
 		#region Methods
@@ -27,6 +30,14 @@ namespace MathematicsVisualiser.ViewModel.Operands.Wrapper
 		#endregion
 
 		#region Properties
+
+		public override GeometryModel3D Content
+		{
+			get
+			{
+				throw new System.NotImplementedException();
+			}
+		}
 
 		#endregion
 

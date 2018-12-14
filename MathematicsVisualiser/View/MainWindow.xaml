@@ -51,8 +51,7 @@
 
 			<GroupBox Header="{Binding Path=SelectedItem.DisplayName}">
 
-				<ContentControl VerticalAlignment="Top"
-            Content="{Binding SelectedItem}" 
+				<ContentControl Content="{Binding SelectedItem}" 
             ContentTemplateSelector="{StaticResource ViewTemplateSelector}" />
 
 			</GroupBox>

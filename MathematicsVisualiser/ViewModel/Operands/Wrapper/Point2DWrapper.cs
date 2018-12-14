@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Windows;
+using System.Windows.Media.Media3D;
+using HelixToolkit.Wpf;
 
 namespace MathematicsVisualiser.ViewModel.Operands.Wrapper
 {
@@ -65,6 +67,15 @@ namespace MathematicsVisualiser.ViewModel.Operands.Wrapper
 				RaisePropertyChanged(nameof(Y));
 			}
 		}
+
+		public override GeometryModel3D Content
+		{
+			get
+			{
+				throw new System.NotImplementedException();
+			}
+		}
+
 		#endregion
 
 

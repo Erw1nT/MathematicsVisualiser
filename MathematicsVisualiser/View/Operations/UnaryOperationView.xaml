@@ -3,30 +3,62 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+						 xmlns:h="http://helix-toolkit.org/wpf"
              xmlns:operators="clr-namespace:MathematicsVisualiser.View.Operators"
-             xmlns:view="clr-namespace:MathematicsVisualiser.View"
-             xmlns:operators1="clr-namespace:MathematicsVisualiser.ViewModel.Operators"
              x:Name="OpView"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-
 	<Grid>
-		<Grid.ColumnDefinitions>
-			<ColumnDefinition Width="*" MaxWidth="50"/>
-			<ColumnDefinition Width="24"/>
-			<ColumnDefinition Width="*" MaxWidth="50"/>
-		</Grid.ColumnDefinitions>
 
-		<Grid.RowDefinitions>
-			<RowDefinition Height="*"/>
-		</Grid.RowDefinitions>
+		<TabControl>
+			<TabItem Header="Formula">
 
-		<operators:UnaryOperatorView Grid.Column="0" DataContext="{Binding}"/>
+				<Grid VerticalAlignment="Top">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="*" MaxWidth="50"/>
+						<ColumnDefinition Width="24"/>
+						<ColumnDefinition Width="*" MaxWidth="50"/>
+					</Grid.ColumnDefinitions>
 
-		<Button Grid.Column="1" Content="=" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Command="{Binding CalculateCommand}" Height="20" Width="20"/>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="*"/>
+					</Grid.RowDefinitions>
 
-		<ContentControl Grid.Column="2" Content="{Binding Path=ResultOperand}"/>
+					<operators:UnaryOperatorView Grid.Column="0" DataContext="{Binding}"/>
+
+					<Button Grid.Column="1" Content="=" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Command="{Binding CalculateCommand}" Height="20" Width="20"/>
+
+					<ContentControl Grid.Column="2" Content="{Binding Path=ResultOperand}"/>
+
+				</Grid>
+
+			</TabItem>
+
+			<TabItem Header="3D View">
+
+				<Grid VerticalAlignment="Stretch">
+					<h:HelixViewport3D>
+
+						<h:HelixViewport3D.Children>
+
+							<h:DefaultLights/>
+							<h:CoordinateSystemVisual3D/>
+							<h:GridLinesVisual3D Width="8" Length="8" MinorDistance="1" MajorDistance="1" Thickness="0.01"/>
+
+							<ModelVisual3D Content="{Binding Path=BaseOperand.Content}"/>
+
+						</h:HelixViewport3D.Children>
+
+					</h:HelixViewport3D>
+				</Grid>
+
+
+			</TabItem>
+
+
+		</TabControl>
 
 	</Grid>
+
 
 </UserControl>

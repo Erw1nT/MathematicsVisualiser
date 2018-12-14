@@ -37,6 +37,7 @@ namespace MathematicsVisualiser.ViewModel.Operations
 			var vectorOperations = new List<BaseViewModel>();
 			vectorOperations.Add(new Vector2DOperations.Vector2DAddOperation());
 			vectorOperations.Add(new Vector2DOperations.Vector2DDotProduct());
+			vectorOperations.Add(new Vector2DOperations.Vector2DNegate());
 
 			var vector3DOperations = new List<BaseViewModel>();
 			vector3DOperations.Add(new Vector3DDotProduct());

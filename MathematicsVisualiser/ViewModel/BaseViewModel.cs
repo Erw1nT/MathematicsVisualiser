@@ -1,5 +1,4 @@
-﻿using System.ComponentModel;
-using GalaSoft.MvvmLight;
+﻿using GalaSoft.MvvmLight;
 
 namespace MathematicsVisualiser.ViewModel
 {

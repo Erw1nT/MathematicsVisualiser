@@ -1,4 +1,7 @@
-﻿namespace MathematicsVisualiser.ViewModel.Operands.Wrapper
+﻿using System.Windows.Media.Media3D;
+using HelixToolkit.Wpf;
+
+namespace MathematicsVisualiser.ViewModel.Operands.Wrapper
 {
 	class DoubleWrapper : GenericWrapper<double>
 	{
@@ -24,6 +27,14 @@
 		#endregion
 
 		#region Properties
+
+		public override GeometryModel3D Content
+		{
+			get
+			{
+				throw new System.NotImplementedException();
+			}
+		}
 
 		#endregion
 
