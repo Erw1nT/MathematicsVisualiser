@@ -14,6 +14,8 @@ namespace MathematicsVisualiser.ViewModel.Operations
 
 		#region Attributes
 
+		protected bool HasCalculated;
+
 		#endregion
 
 		#region Construct
@@ -22,7 +24,8 @@ namespace MathematicsVisualiser.ViewModel.Operations
 		{
 			BaseOperand = new TFirstOperand();
 			ResultOperand = new TResult();
-			CalculateCommand = new RelayCommand(Calculate);
+			CalculateCommand = new RelayCommand(CalculateCommandExecute);
+			HasCalculated = false;
 		}
 
 		#endregion
@@ -40,6 +43,13 @@ namespace MathematicsVisualiser.ViewModel.Operations
 
 		protected abstract void Calculate();
 
+		private void CalculateCommandExecute()
+		{
+			Calculate();
+			HasCalculated = true;
+			RaisePropertyChanged(nameof(Content));
+		}
+
 		#endregion
 
 		#region Properties
@@ -54,7 +64,6 @@ namespace MathematicsVisualiser.ViewModel.Operations
 			get;
 		}
 
-		//TODO: Aktualisiert nicht
 		public abstract Model3D Content { get; }
 
 		#endregion

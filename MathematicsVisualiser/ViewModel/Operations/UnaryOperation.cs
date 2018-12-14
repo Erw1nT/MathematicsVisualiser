@@ -21,6 +21,11 @@ namespace MathematicsVisualiser.ViewModel.Operations
 		{
 			get
 			{
+				if (!HasCalculated)
+				{
+					return null;
+				}
+
 				var cont1 = BaseOperand.Content;
 
 				return cont1;

@@ -67,7 +67,6 @@ namespace MathematicsVisualiser.ViewModel.Operands.Wrapper
 			}
 		}
 
-		//TODO: Wird jedes mal neu generiert, wenn das WrappedItem gesetzt wird (NotifyPropertyChanged in Basis)
 		public override Model3D Content
 		{
 			get

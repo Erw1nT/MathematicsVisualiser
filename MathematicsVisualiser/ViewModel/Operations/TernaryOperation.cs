@@ -33,8 +33,21 @@ namespace MathematicsVisualiser.ViewModel.Operations
 		{
 			get
 			{
-				throw new System.NotImplementedException();
+				if (!HasCalculated)
+				{
+					return null;
+				}
 
+				var cont1 = BaseOperand.Content;
+				var cont2 = SecondOperand.Content;
+				var cont3 = ThirdOperand.Content;
+
+				var group = new Model3DGroup();
+				group.Children.Add(cont1);
+				group.Children.Add(cont2);
+				group.Children.Add(cont3);
+
+				return group;
 			}
 		}
 

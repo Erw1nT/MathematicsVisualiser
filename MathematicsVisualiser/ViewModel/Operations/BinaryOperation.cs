@@ -1,5 +1,4 @@
 ﻿using System.Windows.Media.Media3D;
-using HelixToolkit.Wpf;
 using MathematicsVisualiser.ViewModel.Operators;
 
 namespace MathematicsVisualiser.ViewModel.Operations
@@ -33,6 +32,11 @@ namespace MathematicsVisualiser.ViewModel.Operations
 		{
 			get
 			{
+				if (!HasCalculated)
+				{
+					return null;
+				}
+
 				var cont1 = BaseOperand.Content;
 				var cont2 = SecondOperand.Content;
 
