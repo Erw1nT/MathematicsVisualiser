@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Windows.Media.Media3D;
-using HelixToolkit.Wpf;
 
 namespace MathematicsVisualiser.ViewModel.Operands
 {
-	public abstract class GenericWrapper<T> : BaseViewModel where T : struct
+	public abstract class GenericWrapper<T> : BaseViewModel, IRenderable
+		where T : struct
 	{
 
 		#region Constants
@@ -49,7 +49,7 @@ namespace MathematicsVisualiser.ViewModel.Operands
 
 		protected KeyValuePair<T, GeometryModel3D>? LastCalculation;
 
-		public abstract GeometryModel3D Content
+		public abstract Model3D Content
 		{
 			get;
 		}

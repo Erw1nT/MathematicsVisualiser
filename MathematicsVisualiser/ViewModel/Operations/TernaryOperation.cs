@@ -1,12 +1,13 @@
-﻿using MathematicsVisualiser.ViewModel.Operators;
+﻿using System.Windows.Media.Media3D;
+using MathematicsVisualiser.ViewModel.Operators;
 
 namespace MathematicsVisualiser.ViewModel.Operations
 {
 	abstract class TernaryOperation<TBase, TSecondOperand, TThirdOperand, TResult> : BinaryOperation<TBase, TSecondOperand, TResult>
-		where TBase : new()
-		where TSecondOperand : new()
-		where TThirdOperand : new()
-		where TResult : new()
+		where TBase : IRenderable, new()
+		where TSecondOperand : IRenderable, new()
+		where TThirdOperand : IRenderable, new()
+		where TResult : IRenderable, new()
 	{
 		/// <param name="displayName"> Name of the operation.</param>
 		/// <param name="firstOp"> First operator. This one is positioned as desired at the first operand. </param>
@@ -26,6 +27,15 @@ namespace MathematicsVisualiser.ViewModel.Operations
 		public TThirdOperand ThirdOperand
 		{
 			get;
+		}
+
+		public override Model3D Content
+		{
+			get
+			{
+				throw new System.NotImplementedException();
+
+			}
 		}
 
 	}

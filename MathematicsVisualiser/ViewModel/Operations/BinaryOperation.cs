@@ -1,11 +1,13 @@
-﻿using MathematicsVisualiser.ViewModel.Operators;
+﻿using System.Windows.Media.Media3D;
+using HelixToolkit.Wpf;
+using MathematicsVisualiser.ViewModel.Operators;
 
 namespace MathematicsVisualiser.ViewModel.Operations
 {
 	public abstract class BinaryOperation<TBaseOperand, TSecondOperand, TResult> : UnaryOperation<TBaseOperand, TResult>
-		where TBaseOperand : new()
-		where TSecondOperand : new()
-		where TResult : new()
+		where TBaseOperand : IRenderable, new()
+		where TSecondOperand : IRenderable, new()
+		where TResult : IRenderable, new()
 	{
 
 		/// <param name="displayName"> Name of the operation.</param>
@@ -25,6 +27,21 @@ namespace MathematicsVisualiser.ViewModel.Operations
 		public TSecondOperand SecondOperand
 		{
 			get;
+		}
+
+		public override Model3D Content
+		{
+			get
+			{
+				var cont1 = BaseOperand.Content;
+				var cont2 = SecondOperand.Content;
+
+				var group = new Model3DGroup();
+				group.Children.Add(cont1);
+				group.Children.Add(cont2);
+
+				return group;
+			}
 		}
 
 	}

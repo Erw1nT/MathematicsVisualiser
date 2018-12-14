@@ -1,11 +1,12 @@
 ﻿using System.Windows.Input;
+using System.Windows.Media.Media3D;
 using GalaSoft.MvvmLight.CommandWpf;
 
 namespace MathematicsVisualiser.ViewModel.Operations
 {
-	public abstract class BaseOperation<TFirstOperand, TResult> : BaseViewModel
-		where TFirstOperand : new()
-		where TResult : new()
+	public abstract class BaseOperation<TFirstOperand, TResult> : BaseViewModel, IRenderable
+		where TFirstOperand : IRenderable, new()
+		where TResult : IRenderable, new()
 	{
 		#region Constants
 
@@ -33,7 +34,6 @@ namespace MathematicsVisualiser.ViewModel.Operations
 			get;
 		}
 
-
 		#endregion
 
 		#region Methods
@@ -53,6 +53,9 @@ namespace MathematicsVisualiser.ViewModel.Operations
 		{
 			get;
 		}
+
+		//TODO: Aktualisiert nicht
+		public abstract Model3D Content { get; }
 
 		#endregion
 

@@ -1,4 +1,5 @@
-﻿using MathematicsVisualiser.ViewModel.Operands.Wrapper;
+﻿using System.Windows.Media.Media3D;
+using MathematicsVisualiser.ViewModel.Operands.Wrapper;
 using MathematicsVisualiser.ViewModel.Operators;
 
 namespace MathematicsVisualiser.ViewModel.Operations.Vector2DOperations

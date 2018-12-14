@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Media.Media3D;
-using HelixToolkit.Wpf;
 
 namespace MathematicsVisualiser.ViewModel.Operands.Wrapper
 {
@@ -68,7 +67,7 @@ namespace MathematicsVisualiser.ViewModel.Operands.Wrapper
 			}
 		}
 
-		public override GeometryModel3D Content
+		public override Model3D Content
 		{
 			get
 			{

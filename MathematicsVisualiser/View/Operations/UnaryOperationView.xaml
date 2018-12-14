@@ -45,7 +45,7 @@
 							<h:CoordinateSystemVisual3D/>
 							<h:GridLinesVisual3D Width="8" Length="8" MinorDistance="1" MajorDistance="1" Thickness="0.01"/>
 
-							<ModelVisual3D Content="{Binding Path=BaseOperand.Content}"/>
+							<ModelVisual3D Content="{Binding Path=Content}"/>
 
 						</h:HelixViewport3D.Children>
 

@@ -104,6 +104,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ViewModel\BaseViewModel.cs" />
+    <Compile Include="ViewModel\IRenderable.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\Operands\Helper\Conversion.cs" />
     <Compile Include="ViewModel\Operands\LineSegment2D.cs" />

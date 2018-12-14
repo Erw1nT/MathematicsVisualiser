@@ -28,7 +28,7 @@ namespace MathematicsVisualiser.ViewModel.Operands.Wrapper
 
 		#region Properties
 
-		public override GeometryModel3D Content
+		public override Model3D Content
 		{
 			get
 			{

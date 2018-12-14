@@ -1,10 +1,11 @@
-﻿using MathematicsVisualiser.ViewModel.Operators;
+﻿using System.Windows.Media.Media3D;
+using MathematicsVisualiser.ViewModel.Operators;
 
 namespace MathematicsVisualiser.ViewModel.Operations
 {
 	public abstract class UnaryOperation<TBase, TResult> : BaseOperation<TBase, TResult>
-		where TBase : new()
-		where TResult : new()
+		where TBase : IRenderable, new()
+		where TResult : IRenderable, new()
 	{
 		protected UnaryOperation(string displayName, UnaryOperator firstOp) : base(displayName)
 		{
@@ -14,6 +15,16 @@ namespace MathematicsVisualiser.ViewModel.Operations
 		public UnaryOperator FirstOperator
 		{
 			get;
+		}
+
+		public override Model3D Content
+		{
+			get
+			{
+				var cont1 = BaseOperand.Content;
+
+				return cont1;
+			}
 		}
 
 	}

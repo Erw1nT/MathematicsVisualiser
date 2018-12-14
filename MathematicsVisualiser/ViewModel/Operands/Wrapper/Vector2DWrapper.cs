@@ -67,26 +67,33 @@ namespace MathematicsVisualiser.ViewModel.Operands.Wrapper
 			}
 		}
 
-		public override GeometryModel3D Content
+		//TODO: Wird jedes mal neu generiert, wenn das WrappedItem gesetzt wird (NotifyPropertyChanged in Basis)
+		public override Model3D Content
 		{
 			get
 			{
-				if (!LastCalculation.HasValue)
+				if (LastCalculation.HasValue && LastCalculation.Value.Key == WrappedItem)
 				{
+					return LastCalculation.Value.Value;
 				}
 
 				var meshBuilder = new MeshBuilder();
 
 				var startPoint = new Point3D(0, 0, 0);
 				var endPoint = WrappedItem.ToPoint3D();
-				
+
 				meshBuilder.AddArrow(startPoint, endPoint, 0.1);
 
 				var mat = new DiffuseMaterial(System.Windows.Media.Brushes.Orange);
 				var model = new GeometryModel3D(meshBuilder.ToMesh(), mat);
 
+				if (!LastCalculation.HasValue)
+				{
+					LastCalculation = new System.Collections.Generic.KeyValuePair<Vector, GeometryModel3D>(WrappedItem, model);
+				}
+
 				return model;
-				
+
 			}
 		}
 
