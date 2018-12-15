@@ -51,7 +51,7 @@
 				</TextBlock.Style>
 			</TextBlock>
 
-			<ContentControl Grid.Column="1" Grid.Row="1" Content="{Binding Path=BaseOperand, Converter={StaticResource DebugConverter}}" Background="Red"/>
+			<ContentControl Grid.Column="1" Grid.Row="1" Content="{Binding Path=FirstOperand, Converter={StaticResource DebugConverter}}" Background="Red"/>
 
 			<TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding Path=FirstOperator.SymbolHat, TargetNullValue=''}" VerticalAlignment="Center" HorizontalAlignment="Center">
 				<TextBlock.Style>

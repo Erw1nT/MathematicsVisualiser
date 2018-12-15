@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Media.Media3D;
+using HelixToolkit.Wpf;
+using MathematicsVisualiser.ViewModel.Operands.Helper;
 
 namespace MathematicsVisualiser.ViewModel.Operands.Wrapper
 {
@@ -87,7 +89,20 @@ namespace MathematicsVisualiser.ViewModel.Operands.Wrapper
 		{
 			get
 			{
-				throw new System.NotImplementedException();
+				if (LastCalculation.HasValue && LastCalculation.Value.Key == WrappedItem)
+				{
+					return LastCalculation.Value.Value;
+				}
+
+				var mat = new DiffuseMaterial(System.Windows.Media.Brushes.Orange);
+				var model = new GeometryModel3D(WrappedItem.ToGeometry3D(), mat);
+
+				if (!LastCalculation.HasValue)
+				{
+					LastCalculation = new System.Collections.Generic.KeyValuePair<Vector3D, GeometryModel3D>(WrappedItem, model);
+				}
+
+				return model;
 			}
 		}
 

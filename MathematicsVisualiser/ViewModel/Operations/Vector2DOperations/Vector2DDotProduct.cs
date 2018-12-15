@@ -12,7 +12,7 @@ namespace MathematicsVisualiser.ViewModel.Operations.Vector2DOperations
 
 		protected override void Calculate()
 		{
-			var v1 = BaseOperand.WrappedItem;
+			var v1 = FirstOperand.WrappedItem;
 			var v2 = SecondOperand.WrappedItem;
 
 			var result = v1 * v2;

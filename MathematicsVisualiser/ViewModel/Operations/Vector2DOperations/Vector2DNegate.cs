@@ -13,7 +13,7 @@ namespace MathematicsVisualiser.ViewModel.Operations.Vector2DOperations
 		protected override void Calculate()
 		{
 
-			var wrappedItem = BaseOperand.WrappedItem;
+			var wrappedItem = FirstOperand.WrappedItem;
 			ResultOperand.WrappedItem = new System.Windows.Vector(-wrappedItem.X, -wrappedItem.Y);
 
 		}

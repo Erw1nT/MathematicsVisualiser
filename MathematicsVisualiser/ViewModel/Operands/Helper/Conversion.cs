@@ -5,7 +5,6 @@ namespace MathematicsVisualiser.ViewModel.Operands.Helper
 {
 	static class Conversion
 	{
-
 		public static Vector ToVector(this Point point)
 		{
 			return new Vector(point.X, point.Y);
@@ -24,6 +23,11 @@ namespace MathematicsVisualiser.ViewModel.Operands.Helper
 		public static Point3D ToPoint3D(this Vector3D vector3D)
 		{
 			return new Point3D(vector3D.X, vector3D.Y, vector3D.Z);
+		}
+
+		public static Point3D ToPoint3D(this Point point)
+		{
+			return new Point3D(point.X, point.Y, 0);
 		}
 
 		public static Point3D ToPoint3D(this Vector vector)

@@ -15,7 +15,7 @@ namespace MathematicsVisualiser.ViewModel.Operations.Point2DOperations
 
 		protected override void Calculate()
 		{
-			var pt1 = BaseOperand.WrappedItem;
+			var pt1 = FirstOperand.WrappedItem;
 			var pt2 = SecondOperand.WrappedItem;
 			var pt3 = ThirdOperand.WrappedItem;
 

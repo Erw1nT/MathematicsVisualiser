@@ -28,7 +28,7 @@ namespace MathematicsVisualiser.ViewModel.Operations.Point2DOperations
 		protected override void Calculate()
 		{
 
-			var point1 = BaseOperand;
+			var point1 = FirstOperand;
 			var point2 = SecondOperand;
 
 			var result = point1.WrappedItem + point2.WrappedItem.ToVector();

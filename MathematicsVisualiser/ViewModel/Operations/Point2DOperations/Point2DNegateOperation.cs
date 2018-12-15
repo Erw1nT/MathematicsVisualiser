@@ -13,7 +13,7 @@ namespace MathematicsVisualiser.ViewModel.Operations.Point2DOperations
 		protected override void Calculate()
 		{
 			
-			var wrappedItem = BaseOperand.WrappedItem;
+			var wrappedItem = FirstOperand.WrappedItem;
 			ResultOperand.WrappedItem = new System.Windows.Point(-wrappedItem.X, -wrappedItem.Y);
 
 		}

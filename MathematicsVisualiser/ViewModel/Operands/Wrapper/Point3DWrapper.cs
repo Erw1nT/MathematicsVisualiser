@@ -1,6 +1,6 @@
 ﻿using System.Windows.Media.Media3D;
 using HelixToolkit.Wpf;
-using MathematicsVisualiser.ViewModel.Operands;
+using MathematicsVisualiser.ViewModel.Operands.Helper;
 
 namespace MathematicsVisualiser.ViewModel.Operands.Wrapper
 {
@@ -33,7 +33,13 @@ namespace MathematicsVisualiser.ViewModel.Operands.Wrapper
 		{
 			get
 			{
-				throw new System.NotImplementedException();
+				var mb = new MeshBuilder();
+				mb.AddSphere(WrappedItem, 0.1);
+
+				var mat = new DiffuseMaterial(System.Windows.Media.Brushes.Orange);
+				var model = new GeometryModel3D(WrappedItem.ToGeometry3D(), mat);
+
+				return model;
 			}
 		}
 

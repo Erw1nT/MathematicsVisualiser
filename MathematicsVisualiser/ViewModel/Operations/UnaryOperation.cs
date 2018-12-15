@@ -7,6 +7,8 @@ namespace MathematicsVisualiser.ViewModel.Operations
 		where TBase : IRenderable, new()
 		where TResult : IRenderable, new()
 	{
+		/// <param name="displayName"> Name of the operation.</param>
+		/// <param name="firstOp"> First operator. This one is positioned as desired around the first operand. </param>
 		protected UnaryOperation(string displayName, UnaryOperator firstOp) : base(displayName)
 		{
 			FirstOperator = firstOp;
@@ -26,9 +28,14 @@ namespace MathematicsVisualiser.ViewModel.Operations
 					return null;
 				}
 
-				var cont1 = BaseOperand.Content;
+				var cont1 = FirstOperand.Content;
+				var cont2 = ResultOperand.Content;
 
-				return cont1;
+				var group = new Model3DGroup();
+				group.Children.Add(cont1);
+				group.Children.Add(cont2);
+
+				return group;
 			}
 		}
 

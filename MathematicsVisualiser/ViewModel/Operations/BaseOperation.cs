@@ -22,7 +22,7 @@ namespace MathematicsVisualiser.ViewModel.Operations
 
 		protected BaseOperation(string name) : base(name)
 		{
-			BaseOperand = new TFirstOperand();
+			FirstOperand = new TFirstOperand();
 			ResultOperand = new TResult();
 			CalculateCommand = new RelayCommand(CalculateCommandExecute);
 			HasCalculated = false;
@@ -54,7 +54,7 @@ namespace MathematicsVisualiser.ViewModel.Operations
 
 		#region Properties
 
-		public TFirstOperand BaseOperand
+		public TFirstOperand FirstOperand
 		{
 			get;
 		}

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using MathematicsVisualiser.ViewModel.Operations.Matrix2DOperations;
 using MathematicsVisualiser.ViewModel.Operations.Vector3DOperations;
 
 namespace MathematicsVisualiser.ViewModel.Operations
@@ -42,10 +43,14 @@ namespace MathematicsVisualiser.ViewModel.Operations
 			var vector3DOperations = new List<BaseViewModel>();
 			vector3DOperations.Add(new Vector3DDotProduct());
 
+			var matrix2DOperations = new List<BaseViewModel>();
+			matrix2DOperations.Add(new Matrix2DDeterminant());
+
 			_operations = new List<BaseViewModel>();
 			_operations.AddRange(pointOperations);
 			_operations.AddRange(vectorOperations);
 			_operations.AddRange(vector3DOperations);
+			_operations.AddRange(matrix2DOperations);
 
 		}
 	}

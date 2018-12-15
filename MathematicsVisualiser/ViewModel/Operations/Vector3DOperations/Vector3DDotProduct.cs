@@ -11,7 +11,7 @@ namespace MathematicsVisualiser.ViewModel.Operations.Vector3DOperations
 
 		protected override void Calculate()
 		{
-			var v1 = BaseOperand.WrappedItem;
+			var v1 = FirstOperand.WrappedItem;
 			var v2 = SecondOperand.WrappedItem;
 
 			var result = System.Windows.Media.Media3D.Vector3D.DotProduct(v1, v2);

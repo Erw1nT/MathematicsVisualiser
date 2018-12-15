@@ -76,15 +76,8 @@ namespace MathematicsVisualiser.ViewModel.Operands.Wrapper
 					return LastCalculation.Value.Value;
 				}
 
-				var meshBuilder = new MeshBuilder();
-
-				var startPoint = new Point3D(0, 0, 0);
-				var endPoint = WrappedItem.ToPoint3D();
-
-				meshBuilder.AddArrow(startPoint, endPoint, 0.1);
-
 				var mat = new DiffuseMaterial(System.Windows.Media.Brushes.Orange);
-				var model = new GeometryModel3D(meshBuilder.ToMesh(), mat);
+				var model = new GeometryModel3D(WrappedItem.ToGeometry3D(), mat);
 
 				if (!LastCalculation.HasValue)
 				{
