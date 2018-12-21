@@ -8,14 +8,15 @@
              xmlns:system="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
 						 d:DataContext="{d:DesignInstance Type=wrapper:Vector3DWrapper, IsDesignTimeCreatable=True}"
+						 VerticalAlignment="Center"
              d:DesignHeight="300"
 						 d:DesignWidth="300"
 						 Width="50">
 
-		<UserControl.Resources>
+	<UserControl.Resources>
 		<system:Double x:Key="ParenthesisSize">3</system:Double>
 	</UserControl.Resources>
-	
+
 	<Grid>
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="Auto"/>

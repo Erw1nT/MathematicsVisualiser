@@ -5,12 +5,13 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MathematicsVisualiser.View.Operands"
              mc:Ignorable="d" 
+						 VerticalAlignment="Center"
              d:DesignHeight="300"
 						 d:DesignWidth="300"
 						 Width="50">
 
-	<StackPanel VerticalAlignment="Center">
+	<Grid>
 		<TextBox Text="{Binding Path=WrappedItem, Mode=TwoWay}" IsReadOnly="{Binding Path=IsReadOnly}"/>
-	</StackPanel>
+	</Grid>
 
 </UserControl>

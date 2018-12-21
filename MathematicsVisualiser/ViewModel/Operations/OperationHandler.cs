@@ -13,7 +13,7 @@ namespace MathematicsVisualiser.ViewModel.Operations
 
 		private static List<BaseViewModel> _operations;
 
-		public static List<BaseViewModel> Operations
+		public static IEnumerable<BaseViewModel> Operations
 		{
 			get
 			{
@@ -49,6 +49,7 @@ namespace MathematicsVisualiser.ViewModel.Operations
 
 			var matrix3DOperations = new List<BaseViewModel>();
 			matrix3DOperations.Add(new Matrix3DDetermintantOperation());
+			matrix3DOperations.Add(new Matrix3DRotationAroundAxis());
 
 			_operations = new List<BaseViewModel>();
 			_operations.AddRange(pointOperations);

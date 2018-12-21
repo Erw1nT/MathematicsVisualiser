@@ -120,6 +120,7 @@
     <Compile Include="ViewModel\Operations\BinaryOperation.cs" />
     <Compile Include="ViewModel\Operations\Matrix2DOperations\Matrix2DDeterminantOperation.cs" />
     <Compile Include="ViewModel\Operations\Matrix3DOperations\Matrix3DDetermintantOperation.cs" />
+    <Compile Include="ViewModel\Operations\Matrix3DOperations\Matrix3DRotationAroundAxis.cs" />
     <Compile Include="ViewModel\Operations\OperationHandler.cs" />
     <Compile Include="ViewModel\Operations\Point2DOperations\Point2DAddOperation.cs" />
     <Compile Include="ViewModel\Operations\Point2DOperations\Point2DAngleBetweenLineSegmentsOperation.cs" />

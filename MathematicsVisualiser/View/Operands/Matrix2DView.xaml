@@ -7,15 +7,16 @@
              xmlns:system="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
 						 d:DataContext="{d:DesignInstance Type=wrapper:Matrix2DWrapper, IsDesignTimeCreatable=True}"
-             d:DesignHeight="300"
+             VerticalAlignment="Center"
+						 d:DesignHeight="300"
 						 d:DesignWidth="300"
 						 Width="75">
-	
+
 	<UserControl.Resources>
 		<system:Double x:Key="ParenthesisSize">3</system:Double>
 	</UserControl.Resources>
-	
-	<Grid>
+
+	<Grid >
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="Auto"/>
 			<ColumnDefinition Width="*"/>

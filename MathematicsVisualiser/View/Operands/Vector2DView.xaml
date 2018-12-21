@@ -8,6 +8,7 @@
              xmlns:system="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
 						 d:DataContext="{d:DesignInstance Type=wrapper:Vector2DWrapper, IsDesignTimeCreatable=True}"
+						 VerticalAlignment="Center"
              d:DesignHeight="300"
 						 d:DesignWidth="300"
 						 Width="50">
