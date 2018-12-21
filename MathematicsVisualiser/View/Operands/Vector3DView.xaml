@@ -5,10 +5,17 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MathematicsVisualiser.View.Operands"
              xmlns:wrapper="clr-namespace:MathematicsVisualiser.ViewModel.Operands.Wrapper"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
 						 d:DataContext="{d:DesignInstance Type=wrapper:Vector3DWrapper, IsDesignTimeCreatable=True}"
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="300"
+						 d:DesignWidth="300"
+						 Width="50">
 
+		<UserControl.Resources>
+		<system:Double x:Key="ParenthesisSize">3</system:Double>
+	</UserControl.Resources>
+	
 	<Grid>
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="Auto"/>
@@ -19,7 +26,7 @@
 		<TextBlock Text="(" HorizontalAlignment="Center">
 
 			<TextBlock.RenderTransform>
-				<ScaleTransform ScaleX="1" ScaleY="3"/>
+				<ScaleTransform ScaleX="1" ScaleY="{StaticResource ParenthesisSize}"/>
 			</TextBlock.RenderTransform>
 
 		</TextBlock>
@@ -34,7 +41,7 @@
 
 		<TextBlock Grid.Column="2" Text=")" HorizontalAlignment="Stretch">
 			<TextBlock.RenderTransform>
-				<ScaleTransform ScaleX="1" ScaleY="3"/>
+				<ScaleTransform ScaleX="1" ScaleY="{StaticResource ParenthesisSize}"/>
 			</TextBlock.RenderTransform>
 		</TextBlock>
 	</Grid>

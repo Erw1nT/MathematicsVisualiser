@@ -36,4 +36,8 @@
 		<operands:Matrix2DView DataContext="{Binding}"/>
 	</DataTemplate>
 
+	<DataTemplate DataType="{x:Type wrapper:Matrix3DWrapper}">
+		<operands:Matrix3DView DataContext="{Binding}"/>
+	</DataTemplate>
+
 </ResourceDictionary>

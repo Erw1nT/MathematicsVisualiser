@@ -4,31 +4,33 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 						 xmlns:h="http://helix-toolkit.org/wpf"
-             xmlns:operators="clr-namespace:MathematicsVisualiser.View.Operators"
-             x:Name="OpView"
-             mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             xmlns:operators="clr-namespace:MathematicsVisualiser.View.Operators"             
+             mc:Ignorable="d"
+             d:DesignHeight="300"
+						 d:DesignWidth="300">
+
 	<Grid>
 
-		<TabControl>
+		<TabControl VerticalAlignment="Stretch">
 			<TabItem Header="Formula">
 
 				<Grid VerticalAlignment="Top">
 					<Grid.ColumnDefinitions>
-						<ColumnDefinition Width="*" MaxWidth="50"/>
+						<ColumnDefinition Width="Auto"/>
 						<ColumnDefinition Width="24"/>
-						<ColumnDefinition Width="*" MaxWidth="50"/>
+						<ColumnDefinition Width="Auto"/>
 					</Grid.ColumnDefinitions>
 
 					<Grid.RowDefinitions>
+						<RowDefinition Height="Auto"/>
 						<RowDefinition Height="*"/>
 					</Grid.RowDefinitions>
 
-					<operators:UnaryOperatorView Grid.Column="0" DataContext="{Binding}"/>
+					<operators:UnaryOperatorView Grid.Row="0" Grid.Column="0" DataContext="{Binding}"/>
 
-					<Button Grid.Column="1" Content="=" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Command="{Binding CalculateCommand}" Height="20" Width="20"/>
+					<Button Grid.Row="0"  Grid.Column="1" Content="=" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Command="{Binding CalculateCommand}" Height="20" Width="20"/>
 
-					<ContentControl Grid.Column="2" Content="{Binding Path=ResultOperand}"/>
+					<ContentControl Grid.Row="0" Grid.Column="2" Content="{Binding Path=ResultOperand}"/>
 
 				</Grid>
 
@@ -41,7 +43,7 @@
 						<h:HelixViewport3D.DefaultCamera>
 							<PerspectiveCamera FarPlaneDistance="50" LookDirection="0,0,-1" UpDirection="0,1,0" NearPlaneDistance="1" Position="0,0,20" FieldOfView="45" />
 						</h:HelixViewport3D.DefaultCamera>
-						
+
 						<h:HelixViewport3D.Children>
 
 							<h:DefaultLights/>
@@ -54,14 +56,7 @@
 
 					</h:HelixViewport3D>
 				</Grid>
-
-
 			</TabItem>
-
-
 		</TabControl>
-
 	</Grid>
-
-
 </UserControl>

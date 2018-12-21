@@ -1,12 +1,13 @@
 ﻿using System.Windows.Media.Media3D;
+using MathematicsVisualiser.ViewModel.Operands.Wrapper;
 using MathematicsVisualiser.ViewModel.Operators;
 
 namespace MathematicsVisualiser.ViewModel.Operations
 {
 	public abstract class BinaryOperation<TBaseOperand, TSecondOperand, TResult> : UnaryOperation<TBaseOperand, TResult>
-		where TBaseOperand : IRenderable, new()
-		where TSecondOperand : IRenderable, new()
-		where TResult : IRenderable, new()
+		where TBaseOperand : BaseWrapper, new()
+		where TSecondOperand : BaseWrapper, new()
+		where TResult : BaseWrapper, new()
 	{
 
 		/// <param name="displayName"> Name of the operation.</param>

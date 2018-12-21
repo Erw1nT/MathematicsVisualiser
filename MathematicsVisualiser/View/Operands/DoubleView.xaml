@@ -6,7 +6,8 @@
              xmlns:local="clr-namespace:MathematicsVisualiser.View.Operands"
              mc:Ignorable="d" 
              d:DesignHeight="300"
-						 d:DesignWidth="300">
+						 d:DesignWidth="300"
+						 Width="50">
 
 	<StackPanel VerticalAlignment="Center">
 		<TextBox Text="{Binding Path=WrappedItem, Mode=TwoWay}" IsReadOnly="{Binding Path=IsReadOnly}"/>

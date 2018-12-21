@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Windows.Media.Media3D;
 
-namespace MathematicsVisualiser.ViewModel.Operands
+namespace MathematicsVisualiser.ViewModel.Operands.Wrapper
 {
-	public abstract class GenericWrapper<T> : BaseViewModel, IRenderable
+	public abstract class GenericWrapper<T> : BaseWrapper
 		where T : struct
 	{
 
@@ -12,8 +12,6 @@ namespace MathematicsVisualiser.ViewModel.Operands
 		#endregion
 
 		#region Attributes
-
-		private T _wrappedItem;
 
 		#endregion
 
@@ -36,28 +34,18 @@ namespace MathematicsVisualiser.ViewModel.Operands
 		{
 			get
 			{
-				return _wrappedItem;
+				return (T) InternalWrappedItem;
 			}
 
 			set
 			{
-				_wrappedItem = value;
+				InternalWrappedItem = value;
 				RaisePropertyChanged(nameof(WrappedItem));
 				RaisePropertyChanged(null);
 			}
 		}
 
 		protected KeyValuePair<T, GeometryModel3D>? LastCalculation;
-
-		public abstract Model3D Content
-		{
-			get;
-		}
-
-		public bool IsReadOnly
-		{
-			get;
-		}
 
 		#endregion
 

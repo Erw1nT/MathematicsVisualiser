@@ -1,11 +1,11 @@
 ﻿using MathematicsVisualiser.ViewModel.Operands.Wrapper;
 using MathematicsVisualiser.ViewModel.Operators;
 
-namespace MathematicsVisualiser.ViewModel.Operations.Matrix2DOperations
+namespace MathematicsVisualiser.ViewModel.Operations.Matrix3DOperations
 {
-	class Matrix2DDeterminant : UnaryOperation<Matrix2DWrapper, DoubleWrapper>
+	class Matrix3DDetermintantOperation : UnaryOperation<Matrix3DWrapper, DoubleWrapper>
 	{
-		public Matrix2DDeterminant() : base("Matrix 2D Determinant", UnaryOperator.GetSurroundingOperator("|"))
+		public Matrix3DDetermintantOperation() : base("Matrix 3D Determinant", UnaryOperator.GetSurroundingOperator("|", 4))
 		{
 		}
 

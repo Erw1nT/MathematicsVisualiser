@@ -1,11 +1,12 @@
 ﻿using System.Windows.Media.Media3D;
+using MathematicsVisualiser.ViewModel.Operands.Wrapper;
 using MathematicsVisualiser.ViewModel.Operators;
 
 namespace MathematicsVisualiser.ViewModel.Operations
 {
 	public abstract class UnaryOperation<TBase, TResult> : BaseOperation<TBase, TResult>
-		where TBase : IRenderable, new()
-		where TResult : IRenderable, new()
+		where TBase : BaseWrapper, new()
+		where TResult : BaseWrapper, new()
 	{
 		/// <param name="displayName"> Name of the operation.</param>
 		/// <param name="firstOp"> First operator. This one is positioned as desired around the first operand. </param>

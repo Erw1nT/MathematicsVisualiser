@@ -5,43 +5,45 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:operators="clr-namespace:MathematicsVisualiser.View.Operators"
              xmlns:h="http://helix-toolkit.org/wpf"
-             mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+						 mc:Ignorable="d" 
+             d:DesignHeight="300"
+						 d:DesignWidth="300">
+
 	<Grid>
 
-		<TabControl>
+		<TabControl VerticalAlignment="Stretch">
 			<TabItem Header="Formula">
 
-				<Grid  VerticalAlignment="Top">
+				<Grid VerticalAlignment="Top">
 
 					<Grid.ColumnDefinitions>
-						<ColumnDefinition Width="*" MaxWidth="50"/>
+						<ColumnDefinition Width="Auto"/>
 						<ColumnDefinition Width="24"/>
-						<ColumnDefinition Width="*" MaxWidth="50"/>
+						<ColumnDefinition Width="Auto"/>
 						<ColumnDefinition Width="24"/>
-						<ColumnDefinition Width="*" MaxWidth="50"/>
+						<ColumnDefinition Width="Auto"/>
 						<ColumnDefinition Width="24"/>
-						<ColumnDefinition Width="*" MaxWidth="50"/>
+						<ColumnDefinition Width="Auto"/>
 					</Grid.ColumnDefinitions>
 
 					<Grid.RowDefinitions>
+						<RowDefinition Height="Auto"/>
 						<RowDefinition Height="*"/>
 					</Grid.RowDefinitions>
 
-					<operators:UnaryOperatorView Grid.Column="0" DataContext="{Binding}"/>
+					<operators:UnaryOperatorView Grid.Row="0"  Grid.Column="0" DataContext="{Binding}"/>
 
-					<operators:BinaryOperatorView Grid.Column="1" DataContext="{Binding Path=SecondOperator}"/>
+					<operators:BinaryOperatorView Grid.Row="0"  Grid.Column="1" DataContext="{Binding Path=SecondOperator}"/>
 
-					<ContentControl Grid.Column="2" Content="{Binding SecondOperand}"/>
+					<ContentControl Grid.Row="0" Grid.Column="2" Content="{Binding SecondOperand}"/>
 
-					<operators:BinaryOperatorView Grid.Column="3" DataContext="{Binding Path=ThirdOperator}"/>
+					<operators:BinaryOperatorView Grid.Row="0" Grid.Column="3" DataContext="{Binding Path=ThirdOperator}"/>
 
-					<ContentControl Grid.Column="4" Content="{Binding ThirdOperand}"/>
+					<ContentControl Grid.Row="0" Grid.Column="4" Content="{Binding ThirdOperand}"/>
 
-					<Button Grid.Column="5" Content="=" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Command="{Binding CalculateCommand}" Height="20" Width="20"/>
+					<Button Grid.Row="0" Grid.Column="5" Content="=" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Command="{Binding CalculateCommand}" Height="20" Width="20"/>
 
-					<ContentControl Grid.Column="6" Content="{Binding ResultOperand}"/>
-
+					<ContentControl Grid.Row="0" Grid.Column="6" Content="{Binding ResultOperand}"/>
 
 				</Grid>
 
@@ -64,13 +66,9 @@
 							<ModelVisual3D Content="{Binding Path=Content}"/>
 
 						</h:HelixViewport3D.Children>
-
 					</h:HelixViewport3D>
 				</Grid>
-
-
 			</TabItem>
 		</TabControl>
-
 	</Grid>
 </UserControl>

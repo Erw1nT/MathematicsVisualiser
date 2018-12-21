@@ -3,17 +3,18 @@
 	public class UnaryOperator
 	{
 
-		private UnaryOperator(string symbolFront, string symbolBack, string symbolHat, OperatorPosition position)
+		private UnaryOperator(string symbolFront, string symbolBack, string symbolHat, OperatorPosition position, int yScaleFactor = 1)
 		{
 			SymbolFront = symbolFront;
 			SymbolBack = symbolBack;
 			SymbolHat = symbolHat;
 			Position = position;
+			YScaleFactor = yScaleFactor;
 		}
 
-		public static UnaryOperator GetSurroundingOperator(string symbol)
+		public static UnaryOperator GetSurroundingOperator(string symbol, int yScaleFactor = 1)
 		{
-			var newOperator = new UnaryOperator(symbol, symbol, null, OperatorPosition.Surrounding);
+			var newOperator = new UnaryOperator(symbol, symbol, null, OperatorPosition.Surrounding, yScaleFactor);
 			return newOperator;
 		}
 
@@ -61,6 +62,11 @@
 		}
 
 		public OperatorPosition Position
+		{
+			get;
+		}
+
+		public int YScaleFactor
 		{
 			get;
 		}

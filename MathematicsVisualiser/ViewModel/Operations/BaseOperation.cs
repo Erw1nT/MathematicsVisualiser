@@ -1,12 +1,13 @@
 ﻿using System.Windows.Input;
 using System.Windows.Media.Media3D;
 using GalaSoft.MvvmLight.CommandWpf;
+using MathematicsVisualiser.ViewModel.Operands.Wrapper;
 
 namespace MathematicsVisualiser.ViewModel.Operations
 {
 	public abstract class BaseOperation<TFirstOperand, TResult> : BaseViewModel, IRenderable
-		where TFirstOperand : IRenderable, new()
-		where TResult : IRenderable, new()
+		where TFirstOperand : BaseWrapper, new()
+		where TResult : BaseWrapper, new()
 	{
 		#region Constants
 
@@ -23,7 +24,12 @@ namespace MathematicsVisualiser.ViewModel.Operations
 		protected BaseOperation(string name) : base(name)
 		{
 			FirstOperand = new TFirstOperand();
-			ResultOperand = new TResult();
+
+			ResultOperand = new TResult()
+			{
+				IsReadOnly = true
+			};
+
 			CalculateCommand = new RelayCommand(CalculateCommandExecute);
 			HasCalculated = false;
 		}

@@ -112,13 +112,14 @@
     <Compile Include="ViewModel\Operands\LineSegment2D.cs" />
     <Compile Include="ViewModel\Operands\LineSegment3D.cs" />
     <Compile Include="ViewModel\Operands\Plane.cs" />
-    <Compile Include="ViewModel\Operands\Ray2D.cs" />
-    <Compile Include="ViewModel\Operands\Ray3D.cs" />
+    <Compile Include="ViewModel\Operands\Wrapper\BaseWrapper.cs" />
     <Compile Include="ViewModel\Operands\Wrapper\DoubleWrapper.cs" />
-    <Compile Include="ViewModel\Operands\GenericWrapper.cs" />
+    <Compile Include="ViewModel\Operands\Wrapper\GenericWrapper.cs" />
+    <Compile Include="ViewModel\Operands\Wrapper\LineSegment2DWrapper.cs" />
     <Compile Include="ViewModel\Operations\BaseOperation.cs" />
     <Compile Include="ViewModel\Operations\BinaryOperation.cs" />
-    <Compile Include="ViewModel\Operations\Matrix2DOperations\Matrix2DDeterminant.cs" />
+    <Compile Include="ViewModel\Operations\Matrix2DOperations\Matrix2DDeterminantOperation.cs" />
+    <Compile Include="ViewModel\Operations\Matrix3DOperations\Matrix3DDetermintantOperation.cs" />
     <Compile Include="ViewModel\Operations\OperationHandler.cs" />
     <Compile Include="ViewModel\Operations\Point2DOperations\Point2DAddOperation.cs" />
     <Compile Include="ViewModel\Operations\Point2DOperations\Point2DAngleBetweenLineSegmentsOperation.cs" />
@@ -146,6 +147,9 @@
     </Compile>
     <Compile Include="View\Operands\Matrix2DView.xaml.cs">
       <DependentUpon>Matrix2DView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Operands\Matrix3DView.xaml.cs">
+      <DependentUpon>Matrix3DView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Operands\Point2DView.xaml.cs">
       <DependentUpon>Point2DView.xaml</DependentUpon>
@@ -189,6 +193,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Operands\Matrix2DView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Operands\Matrix3DView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -259,10 +267,7 @@
   <ItemGroup>
     <Folder Include="ViewModel\Operations\LineSegment2DOperations\" />
     <Folder Include="ViewModel\Operations\LineSegment3DOperations\" />
-    <Folder Include="ViewModel\Operations\Matrix3DOperations\" />
     <Folder Include="ViewModel\Operations\Point3DOperations\" />
-    <Folder Include="ViewModel\Operations\Ray2DOperations\" />
-    <Folder Include="ViewModel\Operations\Ray3DOperations\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
