@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using MathematicsVisualiser.ViewModel.Operations.BooleanOperations;
 using MathematicsVisualiser.ViewModel.Operations.Matrix2DOperations;
 using MathematicsVisualiser.ViewModel.Operations.Matrix3DOperations;
 using MathematicsVisualiser.ViewModel.Operations.Vector3DOperations;
@@ -31,6 +32,13 @@ namespace MathematicsVisualiser.ViewModel.Operations
 		private static void InitializeOperations()
 		{
 
+			var booleanOperations = new List<BaseViewModel>();
+			booleanOperations.Add(new BooleanNegationOperation());
+			booleanOperations.Add(new BooleanAndOperation());
+			booleanOperations.Add(new BooleanOrOperation());
+			booleanOperations.Add(new BooleanImplicationOperation());
+			booleanOperations.Add(new BooleanIdentityOperation());
+
 			var pointOperations = new List<BaseViewModel>();
 			pointOperations.Add(new Point2DOperations.Point2DNegateOperation());
 			pointOperations.Add(new Point2DOperations.Point2DAddOperation());
@@ -57,6 +65,7 @@ namespace MathematicsVisualiser.ViewModel.Operations
 			_operations.AddRange(vector3DOperations);
 			_operations.AddRange(matrix2DOperations);
 			_operations.AddRange(matrix3DOperations);
+			_operations.AddRange(booleanOperations);
 
 		}
 	}

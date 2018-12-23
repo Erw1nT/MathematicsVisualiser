@@ -70,6 +70,15 @@ namespace MathematicsVisualiser.ViewModel.Operations
 			get;
 		}
 
+		public virtual bool IsRotationAllowed
+		{
+			get
+			{
+				return true;
+			}
+
+		}
+
 		public abstract Model3D Content { get; }
 
 		#endregion

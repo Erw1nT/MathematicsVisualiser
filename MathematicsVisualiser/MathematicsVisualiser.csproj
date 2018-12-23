@@ -113,11 +113,17 @@
     <Compile Include="ViewModel\Operands\LineSegment3D.cs" />
     <Compile Include="ViewModel\Operands\Plane.cs" />
     <Compile Include="ViewModel\Operands\Wrapper\BaseWrapper.cs" />
+    <Compile Include="ViewModel\Operands\Wrapper\BooleanWrapper.cs" />
     <Compile Include="ViewModel\Operands\Wrapper\DoubleWrapper.cs" />
     <Compile Include="ViewModel\Operands\Wrapper\GenericWrapper.cs" />
     <Compile Include="ViewModel\Operands\Wrapper\LineSegment2DWrapper.cs" />
     <Compile Include="ViewModel\Operations\BaseOperation.cs" />
     <Compile Include="ViewModel\Operations\BinaryOperation.cs" />
+    <Compile Include="ViewModel\Operations\BooleanOperations\BooleanAndOperation.cs" />
+    <Compile Include="ViewModel\Operations\BooleanOperations\BooleanIdentityOperation.cs" />
+    <Compile Include="ViewModel\Operations\BooleanOperations\BooleanImplicationOperation.cs" />
+    <Compile Include="ViewModel\Operations\BooleanOperations\BooleanNegationOperation.cs" />
+    <Compile Include="ViewModel\Operations\BooleanOperations\BooleanOrOperation.cs" />
     <Compile Include="ViewModel\Operations\Matrix2DOperations\Matrix2DDeterminantOperation.cs" />
     <Compile Include="ViewModel\Operations\Matrix3DOperations\Matrix3DDetermintantOperation.cs" />
     <Compile Include="ViewModel\Operations\Matrix3DOperations\Matrix3DRotationAroundAxis.cs" />
@@ -143,6 +149,9 @@
     <Compile Include="ViewModel\Operands\Wrapper\Vector3DWrapper.cs" />
     <Compile Include="View\DebugConverter.cs" />
     <Compile Include="View\GenericsHelper.cs" />
+    <Compile Include="View\Operands\BooleanView.xaml.cs">
+      <DependentUpon>BooleanView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Operands\DoubleView.xaml.cs">
       <DependentUpon>DoubleView.xaml</DependentUpon>
     </Compile>
@@ -189,6 +198,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\Operands\BooleanView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Operands\DoubleView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -269,6 +282,9 @@
     <Folder Include="ViewModel\Operations\LineSegment2DOperations\" />
     <Folder Include="ViewModel\Operations\LineSegment3DOperations\" />
     <Folder Include="ViewModel\Operations\Point3DOperations\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="TODO.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

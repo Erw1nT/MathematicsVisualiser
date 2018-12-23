@@ -4,7 +4,6 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:operators="clr-namespace:MathematicsVisualiser.View.Operators"
-             xmlns:view="clr-namespace:MathematicsVisualiser.View"
              xmlns:h="http://helix-toolkit.org/wpf"
              mc:Ignorable="d"
              d:DesignHeight="300"
@@ -47,7 +46,7 @@
 			<TabItem Header="3D View">
 
 				<Grid VerticalAlignment="Stretch">
-					<h:HelixViewport3D>
+					<h:HelixViewport3D IsRotationEnabled="{Binding Path=IsRotationAllowed}">
 						<h:HelixViewport3D.DefaultCamera>
 							<PerspectiveCamera FarPlaneDistance="50" LookDirection="0,0,-1" UpDirection="0,1,0" NearPlaneDistance="1" Position="0,0,20" FieldOfView="45"/>
 						</h:HelixViewport3D.DefaultCamera>
@@ -56,7 +55,7 @@
 
 							<h:DefaultLights/>
 							<h:CoordinateSystemVisual3D/>
-							<h:GridLinesVisual3D Width="8" Length="8" MinorDistance="1" MajorDistance="1" Thickness="0.01"/>
+							<h:GridLinesVisual3D Width="10" Length="10" MinorDistance="1" MajorDistance="1" Thickness="0.01"/>
 
 							<ModelVisual3D Content="{Binding Path=Content}"/>
 

@@ -1,0 +1,12 @@
+﻿- Mehr Operationen
+- ReadOnly Styles
+- Visuelle Differenzierung der Operanden (Farben, Indizis)
+- Bei 2D Operationen soll der Viewer nicht rotiert werden
+- Verschiedene Viewmethoden: Zahlenstrahl, Geometrie, Boolean -> Bäume?, 
+- Beschreibungen der Operationen
+- Rechenschritte der Operationen
+- Nicht WPF Matrizen
+- Copy & Pasten / Wiederverwenden von Elementen
+- Verschachteln von Operationen / Selbst zusammenklicken (ResultBased)
+- Logische Ausdrücke
+- Trigonometrie (Dreiecke, Quadrate..)

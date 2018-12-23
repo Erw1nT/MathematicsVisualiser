@@ -40,4 +40,9 @@
 		<operands:Matrix3DView DataContext="{Binding}"/>
 	</DataTemplate>
 
+	<DataTemplate DataType="{x:Type wrapper:BooleanWrapper}">
+		<operands:BooleanView DataContext="{Binding}"/>
+	</DataTemplate>
+
+
 </ResourceDictionary>

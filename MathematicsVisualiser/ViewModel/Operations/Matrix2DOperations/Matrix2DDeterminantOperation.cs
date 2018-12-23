@@ -16,5 +16,13 @@ namespace MathematicsVisualiser.ViewModel.Operations.Matrix2DOperations
 
 			ResultOperand.WrappedItem = deter;
 		}
+
+		public override bool IsRotationAllowed
+		{
+			get
+			{
+				return false;
+			}
+		}
 	}
 }

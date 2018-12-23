@@ -3,7 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:MathematicsVisualiser.View.Operands"
              xmlns:wrapper="clr-namespace:MathematicsVisualiser.ViewModel.Operands.Wrapper"
              xmlns:system="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
